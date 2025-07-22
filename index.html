@@ -130,35 +130,35 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* === ESTILOS MÓVILES ACTUALIZADOS === */
         /* Responsive styles for Hero Section on Mobile */
         @media (max-width: 1023px) { /* This corresponds to Tailwind's 'lg' breakpoint */
             #home {
                 background-image: url('banner.webp');
                 background-size: cover;
                 background-position: center;
-                display: flex; /* Use flexbox to center content */
+                display: flex; /* Usamos flex para centrar verticalmente el contenido */
                 align-items: center;
-                justify-content: center;
             }
 
-            /* Hide the original image container on mobile, as we are using a background image */
+            /* Ocultamos el contenedor de la imagen original en móvil */
             #home-image-container {
                 display: none;
             }
 
-            /* Adjust the text container for the mobile view */
+            /* Ajustamos el contenedor de texto para la vista móvil */
             #home-text-content {
                 width: 100%;
-                text-align: center;
-                /* Reset padding for mobile to allow full width centering */
+                text-align: left; /* Alineamos el texto a la izquierda como en la imagen */
+                /* El padding es manejado por la clase px-6 de Tailwind en el elemento */
                 padding-top: 0;
                 padding-bottom: 0;
             }
 
-            /* Ensure buttons stack vertically on mobile and are centered */
+            /* Aseguramos que los botones se apilen verticalmente y se alineen a la izquierda */
             #home-text-content .sm\\:flex-row {
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-start; /* Alineamos los botones a la izquierda */
             }
         }
     </style>
@@ -289,9 +289,9 @@
                         Te ofrecemos opciones deliciosas y saludables.
                     </p>
                      <ul class="space-y-4 text-left mb-8">
-                         <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Ingredientes frescos y locales.</li>
-                         <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Menús balanceados por expertos.</li>
-                         <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Opciones para cada estilo de vida.</li>
+                          <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Ingredientes frescos y locales.</li>
+                          <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Menús balanceados por expertos.</li>
+                          <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Opciones para cada estilo de vida.</li>
                      </ul>
                     <button class="btn btn-secondary">
                         Ver Menú
