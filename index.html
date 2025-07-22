@@ -52,31 +52,32 @@
             align-items: center;
             justify-content: center;
             font-weight: 600;
-            padding: 0.5rem 1.25rem; 
+            padding: 0.625rem 1.5rem; /* Padding aumentado en 2px */
             transition: all 0.3s ease;
-            font-size: 1rem; /* Tamaño de fuente aumentado */
-            border: none; /* Se asegura que no haya bordes */
+            font-size: 1rem;
+            border: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* Sombra añadida */
+        }
+        .btn:hover {
+            transform: translateY(-2px); /* Efecto de levantamiento */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra más pronunciada */
         }
 
         .btn-primary {
             background-color: #a83d51;
             color: white;
         }
-        .btn-primary:hover {
-            opacity: 0.9;
-        }
 
         .btn-secondary {
             background-color: white;
             color: #43121d;
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
         }
-        .btn-secondary:hover {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
+        
         /* Estilo para el campo de email para que coincida con los botones */
         input[type="email"] {
-            font-size: 1rem; /* Tamaño de fuente aumentado */
+            font-size: 1rem;
+            padding-top: 0.625rem;
+            padding-bottom: 0.625rem;
         }
         /* Slick Carousel dots */
         .testimonial-slider .slick-dots li button:before {
@@ -367,7 +368,7 @@
                 <h2 class="text-3xl lg:text-4xl font-bold">Suscríbete y obtén 25% de descuento</h2>
                 <p class="text-base lg:text-lg text-gray-600 mt-4 mb-8">Oferta por tiempo limitado. Sin tarjeta de crédito.</p>
                 <form class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <input type="email" placeholder="Tu correo electrónico" class="w-full sm:w-80 px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-color">
+                    <input type="email" placeholder="Tu correo electrónico" class="w-full sm:w-80 px-4 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-color">
                     <button type="submit" class="btn btn-primary">
                         Suscribirme
                     </button>
