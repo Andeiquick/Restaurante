@@ -8,10 +8,10 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Poppins, Quicksand & Baloo 2 -->
+    <!-- Google Fonts: Baloo 2 & Quicksand -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Poppins:wght@300;400;600&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" xintegrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -22,13 +22,13 @@
 
     <!-- Custom Styles -->
     <style>
-        /* Define la fuente principal para el cuerpo */
+        /* Define la fuente principal para párrafos y texto general */
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: sans-serif;
             color: #555;
         }
-        /* Define la fuente para el encabezado */
-        header {
+        /* Define la fuente para el encabezado, menú, textos pequeños y botones */
+        header, .btn, .small-text {
             font-family: 'Baloo 2', cursive;
         }
         /* Define la fuente y color para los títulos */
@@ -56,7 +56,6 @@
             border-radius: 0.5rem;
             transition: all 0.3s ease;
             font-size: 1rem;
-            font-family: 'Poppins', sans-serif;
         }
         @media (min-width: 1024px) {
             .btn {
@@ -140,7 +139,7 @@
         <div class="loader"></div>
     </div>
 
-  <!-- Header Section -->
+ <!-- Header Section -->
 <header class="bg-white shadow-md sticky top-0 z-50">
   <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
     <div class="text-lg md:text-2xl font-bold brand-color">
@@ -152,7 +151,7 @@
       <a href="#explore" class="nav-link page-scroll text-sm md:text-base">Explore Foods</a>
       <a href="#reviews" class="nav-link page-scroll text-sm md:text-base">Reviews</a>
       <a href="#faq" class="nav-link page-scroll text-sm md:text-base">FAQ</a>
-      <a href="#" class="text-xs md:text-sm font-semibold bg-brand-color text-white px-4 py-1.5 hover:opacity-90 transition" style="font-family: 'Poppins', sans-serif;">
+      <a href="#" class="text-xs md:text-sm font-semibold bg-brand-color text-white px-4 py-1.5 hover:opacity-90 transition" style="font-family: 'Baloo 2', cursive;">
         1800 789 123
       </a>
     </div>
@@ -162,20 +161,19 @@
       </button>
     </div>
   </nav>
-</header>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden px-6 pt-2 pb-4">
-            <a href="#home" class="block py-2 nav-link page-scroll text-lg">Home</a>
-            <a href="#about" class="block py-2 nav-link page-scroll text-lg">About Us</a>
-            <a href="#explore" class="block py-2 nav-link page-scroll text-lg">Explore Foods</a>
-            <a href="#reviews" class="block py-2 nav-link page-scroll text-lg">Reviews</a>
-            <a href="#faq" class="block py-2 nav-link page-scroll text-lg">FAQ</a>
-            <a href="#" class="block mt-2 text-center text-base font-semibold bg-brand-color text-white rounded-lg px-5 py-2 hover:opacity-90 transition" style="font-family: 'Poppins', sans-serif;">
-                1800 789 123
-            </a>
-        </div>
-    </header>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden px-6 pt-2 pb-4">
+        <a href="#home" class="block py-2 nav-link page-scroll text-lg">Home</a>
+        <a href="#about" class="block py-2 nav-link page-scroll text-lg">About Us</a>
+        <a href="#explore" class="block py-2 nav-link page-scroll text-lg">Explore Foods</a>
+        <a href="#reviews" class="block py-2 nav-link page-scroll text-lg">Reviews</a>
+        <a href="#faq" class="block py-2 nav-link page-scroll text-lg">FAQ</a>
+        <a href="#" class="block mt-2 text-center text-base font-semibold bg-brand-color text-white rounded-lg px-5 py-2 hover:opacity-90 transition" style="font-family: 'Baloo 2', cursive;">
+            1800 789 123
+        </a>
+    </div>
+</header>
 
     <main>
 
@@ -183,7 +181,7 @@
 <section id="home" class="min-h-screen flex flex-col-reverse lg:flex-row items-center justify-between bg-white">
   <!-- Text content -->
   <div class="w-full lg:w-1/2 px-6 py-12 lg:py-0">
-<h1 class="text-[1.5rem] sm:text-[2.5rem] lg:text-[3rem] font-extrabold leading-tight text-[#43121d] font-['Quicksand']">
+<h1 class="text-[1.5rem] sm:text-[2.5rem] lg:text-[3rem] font-extrabold leading-tight">
       Good food choices<br />are good<br /> investments.
     </h1>
     <p class="mt-6 text-gray-600 text-base sm:text-lg">
@@ -192,11 +190,11 @@
     </p>
 
     <div class="mt-8 flex flex-col sm:flex-row gap-4">
-      <button class="bg-[#b91646] hover:bg-[#a2133f] text-white font-semibold px-6 py-3  flex items-center justify-center">
+      <button class="btn btn-primary flex items-center justify-center">
         Order Now
         <i class="fa fa-shopping-basket ml-2"></i>
       </button>
-      <a href="#" class="bg-white shadow-md px-6 py-3 text-gray-800 font-semibold hover:shadow-lg flex items-center justify-center">
+      <a href="#" class="btn btn-secondary flex items-center justify-center">
         Learn More
         <i class="fa fa-arrow-right ml-2"></i>
       </a>
@@ -214,20 +212,20 @@
         <section class="bg-brand-color py-12">
             <div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-white text-center">
                 <div>
-                    <p class="text-3xl lg:text-4xl font-bold" style="font-family: 'Poppins', sans-serif;">1287+</p>
-                    <p class="text-sm uppercase" style="font-family: 'Poppins', sans-serif;">Clientes Felices</p>
+                    <p class="text-3xl lg:text-4xl font-bold small-text">1287+</p>
+                    <p class="text-sm uppercase small-text">Clientes Felices</p>
                 </div>
                 <div>
-                    <p class="text-3xl lg:text-4xl font-bold" style="font-family: 'Poppins', sans-serif;">5786+</p>
-                    <p class="text-sm uppercase" style="font-family: 'Poppins', sans-serif;">Platillos Servidos</p>
+                    <p class="text-3xl lg:text-4xl font-bold small-text">5786+</p>
+                    <p class="text-sm uppercase small-text">Platillos Servidos</p>
                 </div>
                 <div>
-                    <p class="text-3xl lg:text-4xl font-bold" style="font-family: 'Poppins', sans-serif;">1440+</p>
-                    <p class="text-sm uppercase" style="font-family: 'Poppins', sans-serif;">Reseñas Positivas</p>
+                    <p class="text-3xl lg:text-4xl font-bold small-text">1440+</p>
+                    <p class="text-sm uppercase small-text">Reseñas Positivas</p>
                 </div>
                 <div>
-                    <p class="text-3xl lg:text-4xl font-bold" style="font-family: 'Poppins', sans-serif;">7110+</p>
-                    <p class="text-sm uppercase" style="font-family: 'Poppins', sans-serif;">Pedidos Online</p>
+                    <p class="text-3xl lg:text-4xl font-bold small-text">7110+</p>
+                    <p class="text-sm uppercase small-text">Pedidos Online</p>
                 </div>
             </div>
         </section>
@@ -260,10 +258,10 @@
                         Te ofrecemos opciones deliciosas y saludables.
                     </p>
                      <ul class="space-y-4 text-left mb-8">
-                        <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Ingredientes frescos y locales.</li>
-                        <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Menús balanceados por expertos.</li>
-                        <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Opciones para cada estilo de vida.</li>
-                    </ul>
+                         <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Ingredientes frescos y locales.</li>
+                         <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Menús balanceados por expertos.</li>
+                         <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Opciones para cada estilo de vida.</li>
+                     </ul>
                     <button class="btn btn-secondary">
                         Ver Menú
                         <i class="fa fa-arrow-right ml-2"></i>
@@ -282,7 +280,7 @@
                 <p class="text-base lg:text-lg text-gray-600 mt-6 mb-8 max-w-3xl mx-auto">
                     - Mahatma Gandhi
                 </p>
-                <a href="#" class="text-base lg:text-lg font-semibold brand-color hover:text-gray-800 transition">
+                <a href="#" class="text-base lg:text-lg font-semibold brand-color hover:text-gray-800 transition small-text">
                     <i class="fa fa-play-circle mr-2"></i>Nuestra Historia
                 </a>
             </div>
@@ -300,7 +298,7 @@
                             <p class="text-base lg:text-lg text-gray-600 italic mb-6">
                                 "La comida es increíblemente fresca y deliciosa. ¡Mi lugar favorito para comer sano!"
                             </p>
-                            <p class="font-bold brand-color" style="font-family: 'Poppins', sans-serif;">Carlos V. - Cliente Frecuente</p>
+                            <p class="font-bold brand-color small-text">Carlos V. - Cliente Frecuente</p>
                         </div>
                     </div>
                     <!-- Testimonial 2 -->
@@ -310,7 +308,7 @@
                             <p class="text-base lg:text-lg text-gray-600 italic mb-6">
                                 "¡Excelente servicio y platillos innovadores! Siempre es un placer volver."
                             </p>
-                            <p class="font-bold brand-color" style="font-family: 'Poppins', sans-serif;">Ana L. - Food Blogger</p>
+                            <p class="font-bold brand-color small-text">Ana L. - Food Blogger</p>
                         </div>
                     </div>
                      <!-- Testimonial 3 -->
@@ -320,7 +318,7 @@
                             <p class="text-base lg:text-lg text-gray-600 italic mb-6">
                                 "Calidad y sabor inigualables. Se nota la pasión que ponen en cada plato."
                             </p>
-                            <p class="font-bold brand-color" style="font-family: 'Poppins', sans-serif;">Sofia M. - Nutricionista</p>
+                            <p class="font-bold brand-color small-text">Sofia M. - Nutricionista</p>
                         </div>
                     </div>
                 </div>
@@ -383,7 +381,7 @@
     <!-- Footer Section -->
     <footer class="bg-brand-color py-8 text-white">
         <div class="container mx-auto px-6 text-center">
-            <div class="flex justify-center space-x-6 mb-6">
+            <div class="flex justify-center space-x-6 mb-6 small-text">
                 <a href="#" class="hover:text-gray-300 transition text-sm lg:text-base">Registro</a>
                 <a href="#" class="hover:text-gray-300 transition text-sm lg:text-base">Foro</a>
                 <a href="#" class="hover:text-gray-300 transition text-sm lg:text-base">Afiliados</a>
@@ -397,7 +395,7 @@
                 <a href="#" class="text-xl hover:text-gray-300 transition"><i class="fa fa-linkedin"></i></a>
                 <a href="#" class="text-xl hover:text-gray-300 transition"><i class="fa fa-instagram"></i></a>
             </div>
-            <p class="text-xs lg:text-sm" style="font-family: 'Poppins', sans-serif;">&copy; 2024. Foodera. Todos los derechos reservados.</p>
+            <p class="text-xs lg:text-sm small-text">&copy; 2024. Foodera. Todos los derechos reservados.</p>
         </div>
     </footer>
 
@@ -445,25 +443,32 @@
             // --- Scrollspy & Smooth Scroll ---
             function setActiveLink() {
                 var scrollDistance = $(window).scrollTop();
+                // Adjust for header height
+                var headerHeight = $('header').outerHeight() || 70;
                 $('.scroll-section').each(function(i) {
-                    if ($(this).position().top <= scrollDistance + 100) {
-                        $('.nav-link').removeClass('active');
-                        $('.nav-link').eq(i).addClass('active');
+                    if ($(this).position().top <= scrollDistance + headerHeight) {
+                        $('.nav-link.page-scroll').removeClass('active');
+                        $('.nav-link.page-scroll').eq(i).addClass('active');
                     }
                 });
             }
 
+            // Set initial active link
             setActiveLink();
+            // Update active link on scroll
             $(window).on('scroll', setActiveLink);
 
+            // Smooth scrolling for page-scroll links
             $('.page-scroll').on('click', function(event) {
                 if (this.hash !== "") {
                     event.preventDefault();
                     var hash = this.hash;
+                    var headerHeight = $('header').outerHeight() || 70;
                     $('html, body').animate({
-                        scrollTop: $(hash).offset().top - 60
+                        scrollTop: $(hash).offset().top - headerHeight
                     }, 800, 'easeInOutExpo');
 
+                    // Close mobile menu if open
                     if (!$('#mobile-menu').hasClass('hidden')) {
                         $('#mobile-menu').addClass('hidden');
                     }
