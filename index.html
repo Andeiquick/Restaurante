@@ -53,9 +53,9 @@
             justify-content: center;
             font-weight: 600;
             padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
             transition: all 0.3s ease;
             font-size: 1rem;
+            border: none; /* Se asegura que no haya bordes */
         }
         @media (min-width: 1024px) {
             .btn {
@@ -74,7 +74,6 @@
         .btn-secondary {
             background-color: white;
             color: #43121d;
-            border: 1px solid #e5e7eb;
             box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
         }
         .btn-secondary:hover {
@@ -169,7 +168,7 @@
         <a href="#explore" class="block py-2 nav-link page-scroll text-lg">Explore Foods</a>
         <a href="#reviews" class="block py-2 nav-link page-scroll text-lg">Reviews</a>
         <a href="#faq" class="block py-2 nav-link page-scroll text-lg">FAQ</a>
-        <a href="#" class="block mt-2 text-center text-base font-semibold bg-brand-color text-white rounded-lg px-5 py-2 hover:opacity-90 transition" style="font-family: 'Baloo 2', cursive;">
+        <a href="#" class="block mt-2 text-center text-base font-semibold bg-brand-color text-white px-5 py-2 hover:opacity-90 transition" style="font-family: 'Baloo 2', cursive;">
             1800 789 123
         </a>
     </div>
@@ -189,15 +188,14 @@
       Etiam et purus a odio finibus bibendum amet leo.
     </p>
 
-   <div class="mt-8 flex flex-col sm:flex-row gap-4">
-  <button class="px-4 py-2 text-sm bg-[#43121d] text-white rounded-md hover:bg-[#5a1e2b] transition duration-300 flex items-center justify-center">
-    Order Now
-    <i class="fa fa-shopping-basket ml-2"></i>
-  </button>
-  
-  <a href="#" class="px-4 py-2 text-sm bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 transition duration-300 flex items-center justify-center">
-    Learn More
-    <i class="fa fa-arrow-right ml-2"></i>
+    <div class="mt-8 flex flex-col sm:flex-row gap-4">
+      <button class="btn btn-primary flex items-center justify-center">
+        Order Now
+        <i class="fa fa-shopping-basket ml-2"></i>
+      </button>
+      <a href="#" class="btn btn-secondary flex items-center justify-center">
+        Learn More
+        <i class="fa fa-arrow-right ml-2"></i>
       </a>
     </div>
   </div>
@@ -370,7 +368,7 @@
                 <h2 class="text-3xl lg:text-4xl font-bold">Suscríbete y obtén 25% de descuento</h2>
                 <p class="text-base lg:text-lg text-gray-600 mt-4 mb-8">Oferta por tiempo limitado. Sin tarjeta de crédito.</p>
                 <form class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <input type="email" placeholder="Tu correo electrónico" class="w-full sm:w-80 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-color">
+                    <input type="email" placeholder="Tu correo electrónico" class="w-full sm:w-80 px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-color">
                     <button type="submit" class="btn btn-primary">
                         Suscribirme
                     </button>
