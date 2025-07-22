@@ -129,6 +129,38 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+        /* Responsive styles for Hero Section on Mobile */
+        @media (max-width: 1023px) { /* This corresponds to Tailwind's 'lg' breakpoint */
+            #home {
+                background-image: url('banner.webp');
+                background-size: cover;
+                background-position: center;
+                display: flex; /* Use flexbox to center content */
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Hide the original image container on mobile, as we are using a background image */
+            #home-image-container {
+                display: none;
+            }
+
+            /* Adjust the text container for the mobile view */
+            #home-text-content {
+                width: 100%;
+                text-align: center;
+                /* Reset padding for mobile to allow full width centering */
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+
+            /* Ensure buttons stack vertically on mobile and are centered */
+            #home-text-content .sm\\:flex-row {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -179,9 +211,9 @@
 <!-- Hero Section -->
 <section id="home" class="min-h-screen flex flex-col-reverse lg:flex-row items-center justify-between bg-white">
   <!-- Text content -->
-  <div class="w-full lg:w-1/2 px-6 py-12 lg:py-0">
-<h1 class="text-[1.5rem] sm:text-[2.5rem] lg:text-[3rem] font-extrabold leading-tight">
-      Donde el hambre <br />se convierte<br /> en felicidad.
+  <div id="home-text-content" class="w-full lg:w-1/2 px-6 py-12 lg:py-0">
+    <h1 class="text-[1.5rem] sm:text-[2.5rem] lg:text-[3rem] font-extrabold leading-tight">
+        Buenas elecciones de comida<br />son buenas inversiones.
     </h1>
     <p class="mt-6 text-gray-600 text-base sm:text-lg">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br />
@@ -201,7 +233,7 @@
   </div>
 
   <!-- Image -->
-  <div class="w-full lg:w-1/2">
+  <div id="home-image-container" class="w-full lg:w-1/2">
     <img src="banner.webp" alt="Delicious food" class="w-full h-auto object-cover" />
   </div>
 </section>
@@ -267,8 +299,8 @@
                     </button>
                 </div>
                 <div>  
-                        <img src="2.png" alt="Collage de diferentes platos de comida" class="w-full h-auto">
-                 </div>
+                     <img src="2.png" alt="Collage de diferentes platos de comida" class="w-full h-auto">
+                </div>
             </div>
         </section>
         
@@ -444,12 +476,21 @@
                 var scrollDistance = $(window).scrollTop();
                 // Adjust for header height
                 var headerHeight = $('header').outerHeight() || 70;
+                // Add a small offset to trigger the active state earlier
+                var offset = 150;
                 $('.scroll-section').each(function(i) {
-                    if ($(this).position().top <= scrollDistance + headerHeight) {
+                    if ($(this).position().top <= scrollDistance + headerHeight + offset) {
+                         // Clear all active classes
                         $('.nav-link.page-scroll').removeClass('active');
-                        $('.nav-link.page-scroll').eq(i).addClass('active');
+                        // Add active class to the current link. We find it by its href attribute
+                        $('.nav-link.page-scroll[href="#' + $(this).attr('id') + '"]').addClass('active');
                     }
                 });
+                 // Special case for home
+                if (scrollDistance < $('#about').position().top - headerHeight - offset) {
+                    $('.nav-link.page-scroll').removeClass('active');
+                    $('.nav-link.page-scroll[href="#home"]').addClass('active');
+                }
             }
 
             // Set initial active link
@@ -477,4 +518,3 @@
     </script>
 </body>
 </html>
-
