@@ -132,14 +132,16 @@
 
         /* === ESTILOS MÓVILES ACTUALIZADOS === */
         /* Responsive styles for Hero Section on Mobile */
-        @media (max-width: 1023px) { /* This corresponds to Tailwind's 'lg' breakpoint */
+        @media (max-width: 808px) { /* This corresponds to Tailwind's 'lg' breakpoint */
             #home {
-                background-image: url('banner.webp');
-                background-size: cover;
-                background-position: center;
-                display: flex; /* Usamos flex para centrar verticalmente el contenido */
-                align-items: center;
+           background-image: url('banner.webp');
+           background-size: cover;
+           background-position: center;
+           display: flex;           /* Flexbox para control de alineación */
+            align-items: center;     /* Centrado vertical */
+           justify-content: flex-end; /* Alineado horizontal a la derecha */
             }
+
 
             /* Ocultamos el contenedor de la imagen original en móvil */
             #home-image-container {
