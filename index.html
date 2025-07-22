@@ -52,15 +52,10 @@
             align-items: center;
             justify-content: center;
             font-weight: 600;
-            padding: 0.75rem 1.5rem;
+            padding: 0.5rem 1.25rem; /* Padding reducido para botones más pequeños */
             transition: all 0.3s ease;
-            font-size: 1rem;
+            font-size: 0.875rem; /* Tamaño de fuente reducido */
             border: none; /* Se asegura que no haya bordes */
-        }
-        @media (min-width: 1024px) {
-            .btn {
-                font-size: 1.125rem;
-            }
         }
 
         .btn-primary {
@@ -78,6 +73,10 @@
         }
         .btn-secondary:hover {
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        /* Estilo para el campo de email para que coincida con los botones */
+        input[type="email"] {
+            font-size: 0.875rem;
         }
         /* Slick Carousel dots */
         .testimonial-slider .slick-dots li button:before {
@@ -368,7 +367,7 @@
                 <h2 class="text-3xl lg:text-4xl font-bold">Suscríbete y obtén 25% de descuento</h2>
                 <p class="text-base lg:text-lg text-gray-600 mt-4 mb-8">Oferta por tiempo limitado. Sin tarjeta de crédito.</p>
                 <form class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <input type="email" placeholder="Tu correo electrónico" class="w-full sm:w-80 px-4 py-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-color">
+                    <input type="email" placeholder="Tu correo electrónico" class="w-full sm:w-80 px-4 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-color">
                     <button type="submit" class="btn btn-primary">
                         Suscribirme
                     </button>
