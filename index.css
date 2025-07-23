@@ -104,20 +104,18 @@ input[type="email"] {
     position: relative;
     min-height: 85vh;
     background-image: url('https://get.pxhere.com/photo/dish-cuisine-food-meal-ingredient-breakfast-brunch-comfort-food-la-carte-food-plate-lunch-dishware-vegetarian-food-recipe-tableware-kids-meal-produce-spoon-garnish-bowl-Food-group-superfood-1614661.jpg');
-    background-size: cover;
-    background-position: right center;
+    background-size: 150%; /* hace zoom para mostrar menos imagen y más detalle */
+    background-position: right 30% center; /* desplaza la imagen un poco a la derecha */
+    background-repeat: no-repeat;
+    background-color: white;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
+    padding-top: 4rem;
   }
 
   #home::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,0.9) 35%, rgba(255,255,255,0) 100%);
-    z-index: 1;
+    content: none;
   }
 
   #home-text-content {
@@ -127,6 +125,7 @@ input[type="email"] {
     padding: 0 1.5rem;
     width: 100%;
     max-width: 500px;
+    margin-top: 4rem;
   }
 
   #home-text-content h1,
@@ -135,7 +134,7 @@ input[type="email"] {
   }
 
   #home-text-content h1 {
-    font-size: 2.25rem; /* texto más grande, como en la imagen */
+    font-size: 2.25rem;
     line-height: 1.2;
   }
 
@@ -144,6 +143,7 @@ input[type="email"] {
     line-height: 1.6;
   }
 }
+
 
 
 /* Estilos para el mapa de Google Maps */
