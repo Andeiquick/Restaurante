@@ -73,38 +73,6 @@ input[type="email"] {
 .nav-link.active {
     color: #a83d51; /* brand-color */
 }
-/* Preloader Styles */
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #fff;
-    z-index: 99999;
-}
-.loader {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 50px;
-    height: 50px;
-    margin-left: -25px;
-    margin-top: -25px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #a83d51;
-    border-radius: 50%;
-    -webkit-animation: spin 1s linear infinite;
-    animation: spin 1s linear infinite;
-}
-@-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-}
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
 
 /* === NUEVOS ESTILOS PARA BANNER (MÓVIL Y ESCRITORIO) === */
 
