@@ -142,63 +142,48 @@
             #home {
                 position: relative;
                 height: 85vh; /* Altura del banner móvil */
-                overflow: hidden;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-            }
-
-            /* Carrusel de fondo */
-            .mobile-banner-slider {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 1;
-            }
-
-            .mobile-banner-slide {
-                height: 85vh;
+                background-image: url('https://images.pexels.com/photos/1028598/pexels-photo-1028598.jpeg');
                 background-size: cover;
-                background-position: center center;
+                background-position: center;
             }
             
             /* Capa oscura para legibilidad */
-            .mobile-banner-slide::before {
+            #home::before {
                 content: '';
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: rgba(0, 0, 0, 0.25); /* Sombra más sutil */
-                z-index: 2;
+                background: rgba(0, 0, 0, 0.3); /* Sombra sutil para contraste */
+                z-index: 1;
             }
 
             /* Contenido de texto centrado sobre el carrusel */
             #home-text-content {
                 position: relative;
-                z-index: 3;
+                z-index: 2; /* Por encima de la capa ::before */
                 text-align: center;
                 width: 90%;
                 max-width: 500px;
                 padding: 1rem;
-                color: white; /* Texto blanco para contraste */
             }
 
             #home-text-content h1 {
                 color: white;
                 font-size: 2.5rem; /* Tamaño de fuente impactante */
                 line-height: 1.2;
-                text-shadow: 0px 2px 4px rgba(0,0,0,0.5); /* Sombra para resaltar */
+                text-shadow: 0px 2px 5px rgba(0,0,0,0.6); /* Sombra para resaltar */
             }
 
             #home-text-content p {
                 color: #f0f0f0; /* Un blanco un poco más suave */
                 font-size: 1.1rem;
                 margin-top: 1rem;
-                text-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+                text-shadow: 0px 1px 3px rgba(0,0,0,0.6);
             }
 
             #home-text-content .mt-8 {
@@ -257,14 +242,9 @@
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex flex-col-reverse lg:flex-row items-center justify-between bg-white">
         
-        <!-- === BANNER MÓVIL CON FONDOS BLANCOS === -->
-        <div class="mobile-banner-slider lg:hidden">
-            <div class="mobile-banner-slide" style="background-image: url('https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
-            <div class="mobile-banner-slide" style="background-image: url('https://images.pexels.com/photos/1152237/pexels-photo-1152237.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
-            <div class="mobile-banner-slide" style="background-image: url('https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
-        </div>
+        <!-- El banner móvil ahora se controla con CSS directamente en el #home -->
 
-        <!-- Text content (Ahora se superpone en móvil) -->
+        <!-- Text content (Se superpone en móvil gracias al CSS) -->
         <div id="home-text-content" class="w-full lg:w-1/2 px-6 py-12 lg:py-0">
             <h1 class="text-[1.5rem] sm:text-[2.5rem] lg:text-[3rem] font-extrabold leading-tight">
                 comer bien es <br />invertir bien.
@@ -503,18 +483,6 @@
             // Mobile Menu Toggle
             $('#menu-button').on('click', function() {
                 $('#mobile-menu').toggleClass('hidden');
-            });
-
-            // === INICIALIZACIÓN DEL NUEVO BANNER MÓVIL ===
-            $('.mobile-banner-slider').slick({
-                dots: false,         // Sin puntos de navegación
-                arrows: false,       // Sin flechas
-                infinite: true,
-                speed: 1000,         // Velocidad de transición (1s)
-                fade: true,          // Efecto de fundido
-                cssEase: 'linear',
-                autoplay: true,      // Reproducción automática
-                autoplaySpeed: 4000, // Tiempo entre imágenes (4s)
             });
 
             // Testimonial Slider
