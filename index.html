@@ -130,64 +130,47 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* === ESTILOS MÓVILES PROFESIONALES (NUEVO BANNER) === */
-        @media (max-width: 1023px) { /* Se aplica hasta el breakpoint 'lg' de tailwind */
-            
-            /* Ocultar la imagen de escritorio en móvil */
-            #home-image-container {
-                display: none;
-            }
-
-            /* Contenedor principal del banner */
+        /* === NUEVOS ESTILOS PARA BANNER (MÓVIL Y ESCRITORIO) === */
+        
+        /* Estilos para la imagen en Escritorio */
+        @media (min-width: 1024px) {
             #home {
-                position: relative;
-                height: 85vh; /* Altura del banner móvil */
-                display: flex;
+                min-height: 90vh;
                 align-items: center;
+            }
+            #home-image-container {
+                display: flex;
                 justify-content: center;
-                background-image: url('https://images.pexels.com/photos/1028598/pexels-photo-1028598.jpeg');
-                background-size: cover;
-                background-position: center;
+                align-items: center;
             }
-            
-            /* Capa oscura para legibilidad */
-            #home::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
+            #home-image-container img {
                 width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.3); /* Sombra sutil para contraste */
-                z-index: 1;
+                max-height: 70vh; /* Controla la altura máxima para que no sea muy grande */
+                object-fit: contain; /* Asegura que toda la imagen sea visible sin estirarse */
             }
+             #home-text-content {
+                text-align: left;
+            }
+        }
 
-            /* Contenido de texto centrado sobre el carrusel */
+        /* Estilos para la imagen en Móvil */
+        @media (max-width: 1023px) {
+            #home {
+                padding: 4rem 0; /* Espacio vertical para la sección */
+                min-height: auto;
+            }
             #home-text-content {
-                position: relative;
-                z-index: 2; /* Por encima de la capa ::before */
                 text-align: center;
-                width: 90%;
-                max-width: 500px;
-                padding: 1rem;
+                padding: 0 1.5rem; /* Padding horizontal para el texto */
             }
-
-            #home-text-content h1 {
-                color: white;
-                font-size: 2.5rem; /* Tamaño de fuente impactante */
-                line-height: 1.2;
-                text-shadow: 0px 2px 5px rgba(0,0,0,0.6); /* Sombra para resaltar */
+            #home-image-container {
+                margin-top: 2.5rem; /* Espacio entre el texto y la imagen */
+                padding: 0 1.5rem; /* Padding para que la imagen no toque los bordes */
             }
-
-            #home-text-content p {
-                color: #f0f0f0; /* Un blanco un poco más suave */
-                font-size: 1.1rem;
-                margin-top: 1rem;
-                text-shadow: 0px 1px 3px rgba(0,0,0,0.6);
-            }
-
-            #home-text-content .mt-8 {
-                margin-top: 2rem;
+            #home-image-container img {
+                width: 100%;
+                max-width: 400px; /* Tamaño mediano para la imagen */
+                margin: 0 auto; /* Centrar la imagen */
             }
         }
 
@@ -240,12 +223,10 @@
     <main>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex flex-col-reverse lg:flex-row items-center justify-between bg-white">
+    <section id="home" class="min-h-screen flex flex-col lg:flex-row justify-center bg-white">
         
-        <!-- El banner móvil ahora se controla con CSS directamente en el #home -->
-
-        <!-- Text content (Se superpone en móvil gracias al CSS) -->
-        <div id="home-text-content" class="w-full lg:w-1/2 px-6 py-12 lg:py-0">
+        <!-- Text content -->
+        <div id="home-text-content" class="w-full lg:w-1/2 flex flex-col justify-center px-6 lg:py-0 lg:pl-12">
             <h1 class="text-[1.5rem] sm:text-[2.5rem] lg:text-[3rem] font-extrabold leading-tight">
                 comer bien es <br />invertir bien.
             </h1>
@@ -266,9 +247,9 @@
             </div>
         </div>
 
-        <!-- Image (Solo visible en escritorio) -->
-        <div id="home-image-container" class="w-full lg:w-1/2 hidden lg:block">
-            <img src="banner.webp" alt="Delicious food" class="w-full h-auto object-cover" />
+        <!-- Image (Visible en móvil y escritorio con nuevos estilos) -->
+        <div id="home-image-container" class="w-full lg:w-1/2">
+            <img src="https://get.pxhere.com/photo/dish-cuisine-food-meal-ingredient-breakfast-brunch-comfort-food-la-carte-food-plate-lunch-dishware-vegetarian-food-recipe-tableware-kids-meal-produce-spoon-garnish-bowl-Food-group-superfood-1614661.jpg" alt="Plato de comida saludable con huevo y aguacate" />
         </div>
     </section>
 
