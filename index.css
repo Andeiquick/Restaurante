@@ -104,28 +104,27 @@ input[type="email"] {
     position: relative;
     min-height: 85vh;
     background-image: url('https://get.pxhere.com/photo/dish-cuisine-food-meal-ingredient-breakfast-brunch-comfort-food-la-carte-food-plate-lunch-dishware-vegetarian-food-recipe-tableware-kids-meal-produce-spoon-garnish-bowl-Food-group-superfood-1614661.jpg');
-    background-size: 150%; /* hace zoom para mostrar menos imagen y más detalle */
-    background-position: right 30% center; /* desplaza la imagen un poco a la derecha */
+    background-size: 160%; /* zoom para mostrar solo parte del plato */
+    background-position: right center; /* enfocado a la derecha */
     background-repeat: no-repeat;
-    background-color: white;
+    background-color: white; /* solo de respaldo, pero sin capas blancas encima */
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
     justify-content: flex-start;
-    padding-top: 4rem;
   }
 
+  /* Elimina cualquier capa o filtro que antes tenía la imagen */
   #home::before {
-    content: none;
+    content: none !important;
   }
 
   #home-text-content {
     position: relative;
     z-index: 2;
-    text-align: left;
-    padding: 0 1.5rem;
-    width: 100%;
+    padding: 4rem 1.5rem 2rem 1.5rem; /* espacio arriba para no pegar al encabezado */
+    background: transparent; /* sin fondo blanco encima de la imagen */
     max-width: 500px;
-    margin-top: 4rem;
+    text-align: left;
   }
 
   #home-text-content h1,
@@ -143,7 +142,6 @@ input[type="email"] {
     line-height: 1.6;
   }
 }
-
 
 
 /* Estilos para el mapa de Google Maps */
