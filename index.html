@@ -132,58 +132,65 @@
 
         /* === ESTILOS MÓVILES ACTUALIZADOS === */
      @media (max-width: 808px) {
-    #home {
-        background-image: url('banner.webp');
-        background-size: cover;
-        background-position: right center; /* 👈 Muestra la parte derecha de la imagen */
-        background-repeat: no-repeat;
-        display: flex;
-        align-items: flex-start; /* 👈 Todo el contenido más arriba */
-        justify-content: flex-end;
-        position: relative;
-    }
+  /* Container principal alineado y ordenado */
+  #home {
+    background-image: url('banner.webp');
+    background-size: cover;
+    background-position: right center; /* derecha visible */
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column; /* organizado vertical */
+    align-items: center;
+    justify-content: flex-start; /* contenido arriba */
+    padding-top: 1rem;
+    position: relative;
+  }
 
-    /* Quitamos sombra o efectos de la imagen */
-    #home img {
-        box-shadow: none !important;
-        filter: none !important;
-    }
+  /* Quitar overlays o sombreado */
+  #home::before {
+    content: none;
+  }
+  #home img {
+    box-shadow: none !important;
+    filter: none !important;
+  }
 
-    #home::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: rgba(255, 255, 255, 0.85); /* Puedes poner solo 'white' si no quieres transparencia */
-        z-index: 1;
-    }
+  /* Wrapper del texto con fondo limpio */
+  #home-text-content {
+    width: 90%;
+    max-width: 400px;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-top: 1rem;
+    z-index: 2;
+  }
 
-    #home-text-content {
-        width: 100%;
-        text-align: left;
-        position: relative;
-        z-index: 2;
-        padding-top: 1rem;  /* 👈 Menos padding para subir el contenido */
-        padding-bottom: 2rem;
-    }
+  /* Título legible y con espacio */
+  #home-text-content h1,
+  #home-text-content h2 {
+    font-size: 2rem;
+    line-height: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
 
-    /* Título más grande en móvil */
-    #home-text-content h1,
-    #home-text-content h2,
-    #home-text-content h3 {
-        font-size: 1.8rem;
-        line-height: 2.2rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-    }
-
-    /* Botones en una sola línea */
-    #home-text-content .sm\:flex-row {
-        flex-direction: row !important;
-        flex-wrap: wrap;
-        gap: 1rem;
-        align-items: center;
-    }
+  /* Botones en línea y centrados */
+  #home-text-content .btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  #home-text-content .btn-container a {
+    flex: 1;
+    text-align: center;
+    padding: 0.75rem 1.25rem;
+  }
 }
+
     </style>
 </head>
 <body class="bg-white">
