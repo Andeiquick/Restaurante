@@ -98,59 +98,53 @@ input[type="email"] {
     }
 }
 
-/* Estilos para la imagen en Móvil */
- @media (max-width: 1023px) {
-      #home {
-        position: relative;
-        min-height: 85vh;
-        background-image: url('https://get.pxhere.com/photo/dish-cuisine-food-meal-ingredient-breakfast-brunch-comfort-food-la-carte-food-plate-lunch-dishware-vegetarian-food-recipe-tableware-kids-meal-produce-spoon-garnish-bowl-Food-group-superfood-1614661.jpg');
-        background-size: cover;
-        background-position: right center;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-      }
+/* Estilos para móvil (hasta 1023px) */
+@media (max-width: 1023px) {
+  #home {
+    position: relative;
+    min-height: 85vh;
+    background-image: url('https://get.pxhere.com/photo/dish-cuisine-food-meal-ingredient-breakfast-brunch-comfort-food-la-carte-food-plate-lunch-dishware-vegetarian-food-recipe-tableware-kids-meal-produce-spoon-garnish-bowl-Food-group-superfood-1614661.jpg');
+    background-size: cover;
+    background-position: right center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
 
-    #home::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        /* Gradiente oscuro desde la izquierda para asegurar legibilidad del texto */
-        background: linear-gradient(to right, rgba(0,0,0,0.6) 20%, rgba(0,0,0,0.1) 80%);
-        z-index: 1;
-    }
+  #home::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0.9) 35%, rgba(255,255,255,0) 100%);
+    z-index: 1;
+  }
 
-    #home-text-content {
-        position: relative;
-        z-index: 2;
-        text-align: left;
-        padding: 0 1.5rem; /* Padding lateral para el texto */
-        width: 100%;
-        max-width: 500px; /* Limita el ancho del texto */
-    }
+  #home-text-content {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    padding: 0 1.5rem;
+    width: 100%;
+    max-width: 500px;
+  }
 
-    /* Cambia el color del texto a blanco para que resalte */
-    #home-text-content h1,
-    #home-text-content p {
-        color: white;
-    }
-    
-    /* Añade sombra al texto para mayor legibilidad */
-    #home-text-content h1 {
-        text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-    }
-    #home-text-content p {
-        text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-    }
+  #home-text-content h1,
+  #home-text-content p {
+    color: #2e0e1a;
+  }
 
-    /* Ocultamos el contenedor de la imagen en móvil, ya que ahora es un fondo */
-    #home-image-container {
-        display: none;
-    }
+  #home-text-content h1 {
+    font-size: 2.25rem; /* texto más grande, como en la imagen */
+    line-height: 1.2;
+  }
+
+  #home-text-content p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
 }
+
 
 /* Estilos para el mapa de Google Maps */
 .map-container {
