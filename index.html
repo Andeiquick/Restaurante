@@ -130,66 +130,81 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* === ESTILOS MÓVILES ACTUALIZADOS === */
-     @media (max-width: 808px) {
-  /* Container principal alineado y ordenado */
-  #home {
-    background-image: url('banner.webp');
-    background-size: cover;
-    background-position: right center; /* derecha visible */
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column; /* organizado vertical */
-    align-items: center;
-    justify-content: flex-start; /* contenido arriba */
-    padding-top: 1rem;
-    position: relative;
-  }
+        /* === ESTILOS MÓVILES PROFESIONALES (NUEVO BANNER) === */
+        @media (max-width: 1023px) { /* Se aplica hasta el breakpoint 'lg' de tailwind */
+            
+            /* Ocultar la imagen de escritorio en móvil */
+            #home-image-container {
+                display: none;
+            }
 
-  /* Quitar overlays o sombreado */
-  #home::before {
-    content: none;
-  }
-  #home img {
-    box-shadow: none !important;
-    filter: none !important;
-  }
+            /* Contenedor principal del banner */
+            #home {
+                position: relative;
+                height: 85vh; /* Altura del banner móvil */
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
-  /* Wrapper del texto con fondo limpio */
-  #home-text-content {
-    width: 90%;
-    max-width: 400px;
-    background: white;
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    text-align: center;
-    margin-top: 1rem;
-    z-index: 2;
-  }
+            /* Carrusel de fondo */
+            .mobile-banner-slider {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
 
-  /* Título legible y con espacio */
-  #home-text-content h1,
-  #home-text-content h2 {
-    font-size: 2rem;
-    line-height: 2.4rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
+            .mobile-banner-slide {
+                height: 85vh;
+                background-size: cover;
+                background-position: center center;
+            }
+            
+            /* Capa oscura para legibilidad */
+            .mobile-banner-slide::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.35); /* Sombra sutil */
+                z-index: 2;
+            }
 
-  /* Botones en línea y centrados */
-  #home-text-content .btn-container {
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-  }
-  #home-text-content .btn-container a {
-    flex: 1;
-    text-align: center;
-    padding: 0.75rem 1.25rem;
-  }
-}
+            /* Contenido de texto centrado sobre el carrusel */
+            #home-text-content {
+                position: relative;
+                z-index: 3;
+                text-align: center;
+                width: 90%;
+                max-width: 500px;
+                padding: 1rem;
+                color: white; /* Texto blanco para contraste */
+            }
+
+            #home-text-content h1 {
+                color: white;
+                font-size: 2.5rem; /* Tamaño de fuente impactante */
+                line-height: 1.2;
+                text-shadow: 0px 2px 4px rgba(0,0,0,0.5); /* Sombra para resaltar */
+            }
+
+            #home-text-content p {
+                color: #f0f0f0; /* Un blanco un poco más suave */
+                font-size: 1.1rem;
+                margin-top: 1rem;
+                text-shadow: 0px 1px 3px rgba(0,0,0,0.5);
+            }
+
+            #home-text-content .mt-8 {
+                margin-top: 2rem;
+            }
+        }
 
     </style>
 </head>
@@ -200,73 +215,81 @@
         <div class="loader"></div>
     </div>
 
- <!-- Header Section -->
-<header class="bg-white shadow-md sticky top-0 z-50">
-  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <div class="text-lg md:text-2xl font-bold brand-color">
-      Foodera
-    </div>
-    <div class="hidden lg:flex items-center space-x-6">
-      <a href="#home" class="nav-link page-scroll text-sm md:text-base">Inicio</a>
-      <a href="#about" class="nav-link page-scroll text-sm md:text-base">Sobre nosotros</a>
-      <a href="#explore" class="nav-link page-scroll text-sm md:text-base">Explorar comidas</a>
-      <a href="#reviews" class="nav-link page-scroll text-sm md:text-base">Reseñas</a>
-      <a href="#faq" class="nav-link page-scroll text-sm md:text-base">Preguntas</a>
-      <a href="#" class="btn btn-primary">
-        1800 789 123
-      </a>
-    </div>
-    <div class="lg:hidden">
-      <button id="menu-button" class="text-gray-700 focus:outline-none">
-        <i class="fa fa-bars text-xl"></i>
-      </button>
-    </div>
-  </nav>
+    <!-- Header Section -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-lg md:text-2xl font-bold brand-color">
+                Foodera
+            </div>
+            <div class="hidden lg:flex items-center space-x-6">
+                <a href="#home" class="nav-link page-scroll text-sm md:text-base">Inicio</a>
+                <a href="#about" class="nav-link page-scroll text-sm md:text-base">Sobre nosotros</a>
+                <a href="#explore" class="nav-link page-scroll text-sm md:text-base">Explorar comidas</a>
+                <a href="#reviews" class="nav-link page-scroll text-sm md:text-base">Reseñas</a>
+                <a href="#faq" class="nav-link page-scroll text-sm md:text-base">Preguntas</a>
+                <a href="#" class="btn btn-primary">
+                    1800 789 123
+                </a>
+            </div>
+            <div class="lg:hidden">
+                <button id="menu-button" class="text-gray-700 focus:outline-none">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+        </nav>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden lg:hidden px-6 pt-2 pb-4">
-        <a href="#home" class="block py-2 nav-link page-scroll text-lg">Inicio</a>
-        <a href="#about" class="block py-2 nav-link page-scroll text-lg">Sobre nosotros</a>
-        <a href="#explore" class="block py-2 nav-link page-scroll text-lg">Explorar comidas</a>
-        <a href="#reviews" class="block py-2 nav-link page-scroll text-lg">Reseñas</a>
-        <a href="#faq" class="block py-2 nav-link page-scroll text-lg">Preguntas</a>
-        <a href="#" class="btn btn-primary block mt-2 w-full">
-            1800 789 123
-        </a>
-    </div>
-</header>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden px-6 pt-2 pb-4">
+            <a href="#home" class="block py-2 nav-link page-scroll text-lg">Inicio</a>
+            <a href="#about" class="block py-2 nav-link page-scroll text-lg">Sobre nosotros</a>
+            <a href="#explore" class="block py-2 nav-link page-scroll text-lg">Explorar comidas</a>
+            <a href="#reviews" class="block py-2 nav-link page-scroll text-lg">Reseñas</a>
+            <a href="#faq" class="block py-2 nav-link page-scroll text-lg">Preguntas</a>
+            <a href="#" class="btn btn-primary block mt-2 w-full">
+                1800 789 123
+            </a>
+        </div>
+    </header>
 
     <main>
 
-<!-- Hero Section -->
-<section id="home" class="min-h-screen flex flex-col-reverse lg:flex-row items-center justify-between bg-white">
-  <!-- Text content -->
-  <div id="home-text-content" class="w-full lg:w-1/2 px-6 py-12 lg:py-0">
-    <h1 class="text-[1.5rem] sm:text-[2.5rem] lg:text-[3rem] font-extrabold leading-tight">
-        comer bien es <br />invertir bien.
-    </h1>
-    <p class="mt-6 text-gray-600 text-base sm:text-lg">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br />
-      Etiam et purus a odio finibus bibendum amet leo.
-    </p>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex flex-col-reverse lg:flex-row items-center justify-between bg-white">
+        
+        <!-- === NUEVO BANNER ANIMADO PARA MÓVIL === -->
+        <div class="mobile-banner-slider lg:hidden">
+            <div class="mobile-banner-slide" style="background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
+            <div class="mobile-banner-slide" style="background-image: url('https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
+            <div class="mobile-banner-slide" style="background-image: url('https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
+        </div>
 
-    <div class="mt-8 flex flex-col sm:flex-row gap-4">
-      <button class="btn btn-primary flex items-center justify-center">
-        Ordenar Ahora
-        <i class="fa fa-shopping-basket ml-2"></i>
-      </button>
-      <a href="#" class="btn btn-secondary flex items-center justify-center">
-        Leer más
-        <i class="fa fa-arrow-right ml-2"></i>
-      </a>
-    </div>
-  </div>
+        <!-- Text content (Ahora se superpone en móvil) -->
+        <div id="home-text-content" class="w-full lg:w-1/2 px-6 py-12 lg:py-0">
+            <h1 class="text-[1.5rem] sm:text-[2.5rem] lg:text-[3rem] font-extrabold leading-tight">
+                comer bien es <br />invertir bien.
+            </h1>
+            <p class="mt-6 text-gray-600 text-base sm:text-lg">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br />
+                Etiam et purus a odio finibus bibendum amet leo.
+            </p>
 
-  <!-- Image -->
-  <div id="home-image-container" class="w-full lg:w-1/2">
-    <img src="banner.webp" alt="Delicious food" class="w-full h-auto object-cover" />
-  </div>
-</section>
+            <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                <button class="btn btn-primary flex items-center justify-center">
+                    Ordenar Ahora
+                    <i class="fa fa-shopping-basket ml-2"></i>
+                </button>
+                <a href="#" class="btn btn-secondary flex items-center justify-center">
+                    Leer más
+                    <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Image (Solo visible en escritorio) -->
+        <div id="home-image-container" class="w-full lg:w-1/2 hidden lg:block">
+            <img src="banner.webp" alt="Delicious food" class="w-full h-auto object-cover" />
+        </div>
+    </section>
 
 
         <!-- Stats Section -->
@@ -481,6 +504,18 @@
                 $('#mobile-menu').toggleClass('hidden');
             });
 
+            // === INICIALIZACIÓN DEL NUEVO BANNER MÓVIL ===
+            $('.mobile-banner-slider').slick({
+                dots: false,         // Sin puntos de navegación
+                arrows: false,       // Sin flechas
+                infinite: true,
+                speed: 1000,         // Velocidad de transición (1s)
+                fade: true,          // Efecto de fundido
+                cssEase: 'linear',
+                autoplay: true,      // Reproducción automática
+                autoplaySpeed: 4000, // Tiempo entre imágenes (4s)
+            });
+
             // Testimonial Slider
             $('.testimonial-slider').slick({
                 dots: true,
@@ -493,7 +528,7 @@
                 autoplaySpeed: 4000,
             });
 
-            // Stellar.js for Parallax
+            // Stellar.js for Parallax (solo en escritorio)
             if ($(window).width() > 768) {
                 $.stellar({
                     horizontalScrolling: false,
