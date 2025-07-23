@@ -131,23 +131,29 @@
         }
 
         /* === ESTILOS MÓVILES ACTUALIZADOS === */
-       @media (max-width: 808px) {
+     @media (max-width: 808px) {
     #home {
         background-image: url('banner.webp');
         background-size: cover;
-        background-position: left center;
+        background-position: right center; /* 👈 Muestra la parte derecha de la imagen */
         background-repeat: no-repeat;
         display: flex;
-        align-items: center;
+        align-items: flex-start; /* 👈 Todo el contenido más arriba */
         justify-content: flex-end;
         position: relative;
+    }
+
+    /* Quitamos sombra o efectos de la imagen */
+    #home img {
+        box-shadow: none !important;
+        filter: none !important;
     }
 
     #home::before {
         content: '';
         position: absolute;
         inset: 0;
-        background: rgba(255, 255, 255, 0.85);
+        background: rgba(255, 255, 255, 0.85); /* Puedes poner solo 'white' si no quieres transparencia */
         z-index: 1;
     }
 
@@ -156,13 +162,13 @@
         text-align: left;
         position: relative;
         z-index: 2;
-        padding-top: 3rem;
+        padding-top: 1rem;  /* 👈 Menos padding para subir el contenido */
         padding-bottom: 2rem;
     }
 
-    /* 🔠 Título más grande */
-    #home-text-content h1, 
-    #home-text-content h2, 
+    /* Título más grande en móvil */
+    #home-text-content h1,
+    #home-text-content h2,
     #home-text-content h3 {
         font-size: 1.8rem;
         line-height: 2.2rem;
@@ -170,7 +176,7 @@
         margin-bottom: 1rem;
     }
 
-    /* ✅ Botones en línea en móvil */
+    /* Botones en una sola línea */
     #home-text-content .sm\:flex-row {
         flex-direction: row !important;
         flex-wrap: wrap;
