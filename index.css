@@ -1,1 +1,200 @@
+/* Define la fuente principal para párrafos y texto general */
+body {
+    font-family: sans-serif;
+    color: #555;
+}
+/* Define la fuente para el encabezado, menú, textos pequeños y botones */
+header, .btn, .small-text, .logo-text {
+    font-family: 'Baloo 2', cursive;
+}
+/* Define la fuente y color para los títulos */
+h1, h2, h3 {
+    font-family: 'Quicksand', sans-serif;
+    color: #43121d;
+}
+/* Define un color personalizado basado en el diseño */
+.brand-color {
+    color: #a83d51;
+}
+.bg-brand-color {
+    background-color: #a83d51;
+}
+.border-brand-color {
+    border-color: #a83d51;
+}
+/* Estilos para botones para que coincidan con la imagen */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    padding: 0.625rem 1.5rem; /* Padding aumentado en 2px */
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* Sombra añadida */
+}
+.btn:hover {
+    transform: translateY(-2px); /* Efecto de levantamiento */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra más pronunciada */
+}
 
+.btn-primary {
+    background-color: #a83d51;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: white;
+    color: #43121d;
+}
+
+/* Estilo para el campo de email para que coincida con los botones */
+input[type="email"] {
+    font-size: 1rem;
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+}
+/* Slick Carousel dots */
+.testimonial-slider .slick-dots li button:before {
+    font-size: 12px;
+    color: white;
+    opacity: 0.5;
+}
+.testimonial-slider .slick-dots li.slick-active button:before {
+    opacity: 1;
+}
+/* Navigation Link Styles */
+.nav-link {
+    transition: color 0.3s ease;
+    color: #4a5568; /* text-gray-700 */
+    font-weight: 600;
+}
+.nav-link.active {
+    color: #a83d51; /* brand-color */
+}
+/* Preloader Styles */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    z-index: 99999;
+}
+.loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
+    margin-top: -25px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #a83d51;
+    border-radius: 50%;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* === NUEVOS ESTILOS PARA BANNER (MÓVIL Y ESCRITORIO) === */
+
+/* Estilos para la imagen en Escritorio */
+@media (min-width: 1024px) {
+    #home {
+        height: 100vh;
+        align-items: stretch; /* Permite que los hijos ocupen toda la altura */
+    }
+    #home-text-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+    }
+    #home-image-container {
+        height: 100%;
+    }
+    #home-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Cubre todo el espacio sin deformarse */
+    }
+}
+
+/* Estilos para la imagen en Móvil */
+@media (max-width: 1023px) {
+    #home {
+        position: relative;
+        min-height: 85vh;
+        background-image: url('https://get.pxhere.com/photo/dish-cuisine-food-meal-ingredient-breakfast-brunch-comfort-food-la-carte-food-plate-lunch-dishware-vegetarian-food-recipe-tableware-kids-meal-produce-spoon-garnish-bowl-Food-group-superfood-1614661.jpg');
+        background-size: cover;
+        background-position: right center; /* Muestra el lado derecho de la imagen */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Alinea el contenido a la izquierda */
+    }
+
+    #home::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* Gradiente oscuro desde la izquierda para asegurar legibilidad del texto */
+        background: linear-gradient(to right, rgba(0,0,0,0.6) 20%, rgba(0,0,0,0.1) 80%);
+        z-index: 1;
+    }
+
+    #home-text-content {
+        position: relative;
+        z-index: 2;
+        text-align: left;
+        padding: 0 1.5rem; /* Padding lateral para el texto */
+        width: 100%;
+        max-width: 500px; /* Limita el ancho del texto */
+    }
+
+    /* Cambia el color del texto a blanco para que resalte */
+    #home-text-content h1,
+    #home-text-content p {
+        color: white;
+    }
+    
+    /* Añade sombra al texto para mayor legibilidad */
+    #home-text-content h1 {
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+    #home-text-content p {
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+
+    /* Ocultamos el contenedor de la imagen en móvil, ya que ahora es un fondo */
+    #home-image-container {
+        display: none;
+    }
+}
+
+/* Estilos para el mapa de Google Maps */
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Altura fija para el mapa */
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
