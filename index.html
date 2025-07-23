@@ -131,37 +131,42 @@
         }
 
         /* === ESTILOS MÓVILES ACTUALIZADOS === */
-        /* Responsive styles for Hero Section on Mobile */
-        @media (max-width: 808px) { /* This corresponds to Tailwind's 'lg' breakpoint */
-            #home {
-           background-image: url('banner.webp');
-           background-size: cover;
-           background-position: center;
-           display: flex;           /* Flexbox para control de alineación */
-            align-items: center;     /* Centrado vertical */
-           justify-content: flex-end; /* Alineado horizontal a la derecha */
-            }
+        @media (max-width: 808px) {
+    #home {
+        background-image: url('banner.webp');
+        background-size: cover;
+        background-position: left center; /* Solo muestra la parte izquierda de la imagen */
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        position: relative;
+    }
 
+    /* Agrega un overlay blanco encima de la imagen */
+    #home::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.85); /* Blanco con opacidad */
+        z-index: 1;
+    }
 
-            /* Ocultamos el contenedor de la imagen original en móvil */
-            #home-image-container {
-                display: none;
-            }
+    /* Contenido encima del overlay */
+    #home-text-content {
+        width: 100%;
+        text-align: left;
+        padding-top: 0;
+        padding-bottom: 0;
+        position: relative;
+        z-index: 2; /* Asegura que se vea encima del overlay */
+    }
 
-            /* Ajustamos el contenedor de texto para la vista móvil */
-            #home-text-content {
-                width: 100%;
-                text-align: left; /* Alineamos el texto a la izquierda como en la imagen */
-                /* El padding es manejado por la clase px-6 de Tailwind en el elemento */
-                padding-top: 0;
-                padding-bottom: 0;
-            }
+    #home-text-content .sm\:flex-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-            /* Aseguramos que los botones se apilen verticalmente y se alineen a la izquierda */
-            #home-text-content .sm\\:flex-row {
-                flex-direction: column;
-                align-items: flex-start; /* Alineamos los botones a la izquierda */
-            }
         }
     </style>
 </head>
