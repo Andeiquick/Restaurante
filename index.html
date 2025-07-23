@@ -21,209 +21,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
 
     <!-- Custom Styles -->
-    <style>
-        /* Define la fuente principal para párrafos y texto general */
-        body {
-            font-family: sans-serif;
-            color: #555;
-        }
-        /* Define la fuente para el encabezado, menú, textos pequeños y botones */
-        header, .btn, .small-text, .logo-text {
-            font-family: 'Baloo 2', cursive;
-        }
-        /* Define la fuente y color para los títulos */
-        h1, h2, h3 {
-            font-family: 'Quicksand', sans-serif;
-            color: #43121d;
-        }
-        /* Define un color personalizado basado en el diseño */
-        .brand-color {
-            color: #a83d51;
-        }
-        .bg-brand-color {
-            background-color: #a83d51;
-        }
-        .border-brand-color {
-            border-color: #a83d51;
-        }
-        /* Estilos para botones para que coincidan con la imagen */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            padding: 0.625rem 1.5rem; /* Padding aumentado en 2px */
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            border: none;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* Sombra añadida */
-        }
-        .btn:hover {
-            transform: translateY(-2px); /* Efecto de levantamiento */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra más pronunciada */
-        }
-
-        .btn-primary {
-            background-color: #a83d51;
-            color: white;
-        }
-
-        .btn-secondary {
-            background-color: white;
-            color: #43121d;
-        }
-        
-        /* Estilo para el campo de email para que coincida con los botones */
-        input[type="email"] {
-            font-size: 1rem;
-            padding-top: 0.625rem;
-            padding-bottom: 0.625rem;
-        }
-        /* Slick Carousel dots */
-        .testimonial-slider .slick-dots li button:before {
-            font-size: 12px;
-            color: white;
-            opacity: 0.5;
-        }
-        .testimonial-slider .slick-dots li.slick-active button:before {
-            opacity: 1;
-        }
-        /* Navigation Link Styles */
-        .nav-link {
-            transition: color 0.3s ease;
-            color: #4a5568; /* text-gray-700 */
-            font-weight: 600;
-        }
-        .nav-link.active {
-            color: #a83d51; /* brand-color */
-        }
-        /* Preloader Styles */
-        #preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #fff;
-            z-index: 99999;
-        }
-        .loader {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            width: 50px;
-            height: 50px;
-            margin-left: -25px;
-            margin-top: -25px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #a83d51;
-            border-radius: 50%;
-            -webkit-animation: spin 1s linear infinite;
-            animation: spin 1s linear infinite;
-        }
-        @-webkit-keyframes spin {
-            0% { -webkit-transform: rotate(0deg); }
-            100% { -webkit-transform: rotate(360deg); }
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* === NUEVOS ESTILOS PARA BANNER (MÓVIL Y ESCRITORIO) === */
-        
-        /* Estilos para la imagen en Escritorio */
-        @media (min-width: 1024px) {
-            #home {
-                height: 100vh;
-                align-items: stretch; /* Permite que los hijos ocupen toda la altura */
-            }
-            #home-text-content {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                text-align: left;
-            }
-            #home-image-container {
-                height: 100%;
-            }
-            #home-image-container img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover; /* Cubre todo el espacio sin deformarse */
-            }
-        }
-
-        /* Estilos para la imagen en Móvil */
-        @media (max-width: 1023px) {
-            #home {
-                position: relative;
-                min-height: 85vh;
-                background-image: url('https://get.pxhere.com/photo/dish-cuisine-food-meal-ingredient-breakfast-brunch-comfort-food-la-carte-food-plate-lunch-dishware-vegetarian-food-recipe-tableware-kids-meal-produce-spoon-garnish-bowl-Food-group-superfood-1614661.jpg');
-                background-size: cover;
-                background-position: right center; /* Muestra el lado derecho de la imagen */
-                display: flex;
-                align-items: center;
-                justify-content: flex-start; /* Alinea el contenido a la izquierda */
-            }
-
-            #home::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                /* Gradiente oscuro desde la izquierda para asegurar legibilidad del texto */
-                background: linear-gradient(to right, rgba(0,0,0,0.6) 20%, rgba(0,0,0,0.1) 80%);
-                z-index: 1;
-            }
-
-            #home-text-content {
-                position: relative;
-                z-index: 2;
-                text-align: left;
-                padding: 0 1.5rem; /* Padding lateral para el texto */
-                width: 100%;
-                max-width: 500px; /* Limita el ancho del texto */
-            }
-
-            /* Cambia el color del texto a blanco para que resalte */
-            #home-text-content h1,
-            #home-text-content p {
-                color: white;
-            }
-            
-            /* Añade sombra al texto para mayor legibilidad */
-            #home-text-content h1 {
-                text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-            }
-            #home-text-content p {
-                text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-            }
-
-            /* Ocultamos el contenedor de la imagen en móvil, ya que ahora es un fondo */
-            #home-image-container {
-                display: none;
-            }
-        }
-
-        /* Estilos para el mapa de Google Maps */
-     .map-container {
-       position: relative;
-       width: 100%;
-       height: 400px; /* Altura fija para el mapa */
-       border-radius: 0.75rem;
-       overflow: hidden;
-       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-     }
-      .map-container iframe {
-       width: 100%;
-       height: 100%;
-       border: 0;
-         }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-white">
 
@@ -237,7 +35,7 @@
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo de texto rediseñado -->
             <a href="#home" class="page-scroll text-2xl lg:text-3xl font-bold brand-color logo-text">
-              Foodera
+                Foodera
             </a>
             <div class="hidden lg:flex items-center space-x-6">
                 <a href="#home" class="nav-link page-scroll text-sm md:text-base">Inicio</a>
@@ -329,7 +127,7 @@
         <section id="about" class="scroll-section py-16 md:py-28">
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                 <div class="order-2 md:order-1">
-                     <img src="https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg" alt="Bowl de ensalada con aguacate y garbanzos" class="rounded-lg shadow-lg w-full h-auto">
+                    <img src="https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg" alt="Bowl de ensalada con aguacate y garbanzos" class="rounded-lg shadow-lg w-full h-auto">
                 </div>
                 <div class="order-1 md:order-2 text-center md:text-left">
                     <h2 class="text-3xl lg:text-4xl font-bold">Comida real con los mejores ingredientes.</h2>
@@ -352,25 +150,25 @@
                     <p class="text-base lg:text-lg text-gray-600 mt-6 mb-8">
                         Te ofrecemos opciones deliciosas y saludables.
                     </p>
-                     <ul class="space-y-4 text-left mb-8">
-                          <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Ingredientes frescos y locales.</li>
-                          <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Menús balanceados por expertos.</li>
-                          <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Opciones para cada estilo de vida.</li>
-                     </ul>
+                    <ul class="space-y-4 text-left mb-8">
+                        <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Ingredientes frescos y locales.</li>
+                        <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Menús balanceados por expertos.</li>
+                        <li class="flex items-center"><i class="fa fa-check-circle brand-color mr-3"></i>Opciones para cada estilo de vida.</li>
+                    </ul>
                     <button class="btn btn-secondary">
                         Ver Menú
                         <i class="fa fa-arrow-right ml-2"></i>
                     </button>
                 </div>
                 <div>  
-                     <img src="2.png" alt="Collage de diferentes platos de comida" class="w-full h-auto">
+                    <img src="https://placehold.co/600x400/FF6347/FFFFFF?text=Comida+Variada" alt="Collage de diferentes platos de comida" class="w-full h-auto">
                 </div>
             </div>
         </section>
         
         <!-- Quote Section -->
         <section class="py-16 md:py-28 text-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?q=80&w=2092&auto=format&fit=crop');" data-stellar-background-ratio="0.5">
-             <div class="container mx-auto px-6 bg-white bg-opacity-80 p-10 rounded-lg">
+            <div class="container mx-auto px-6 bg-white bg-opacity-80 p-10 rounded-lg">
                 <h2 class="text-3xl lg:text-4xl font-bold">"La salud es la verdadera riqueza, no piezas de oro y plata."</h2>
                 <p class="text-base lg:text-lg text-gray-600 mt-6 mb-8 max-w-3xl mx-auto">
                     - Mahatma Gandhi
@@ -406,7 +204,7 @@
                             <p class="font-bold brand-color small-text">Ana L. - Food Blogger</p>
                         </div>
                     </div>
-                     <!-- Testimonial 3 -->
+                    <!-- Testimonial 3 -->
                     <div class="px-4">
                         <div class="bg-white p-8 md:p-12 rounded-xl shadow-2xl max-w-3xl mx-auto">
                             <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1976&auto=format&fit=crop" alt="Foto de cliente" class="w-20 h-20 rounded-full mx-auto mb-6 object-cover">
@@ -420,31 +218,6 @@
             </div>
         </section>
         
-        <!-- FAQ Section -->
-        <section id="faq" class="scroll-section py-16 md:py-28">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl lg:text-4xl font-bold text-center mb-12">Preguntas Frecuentes</h2>
-                <div class="grid md:grid-cols-2 gap-x-12 gap-y-8 max-w-5xl mx-auto">
-                    <div>
-                        <h3 class="text-lg lg:text-xl font-semibold brand-color mb-2">~ ¿Sus productos son frescos?</h3>
-                        <p class="text-sm lg:text-base text-gray-600">Sí, usamos ingredientes frescos y de temporada todos los días.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-lg lg:text-xl font-semibold brand-color mb-2">~ ¿Tienen opciones veganas?</h3>
-                        <p class="text-sm lg:text-base text-gray-600">¡Claro! Contamos con una amplia variedad de platillos veganos.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-lg lg:text-xl font-semibold brand-color mb-2">~ ¿Puedo ordenar en línea?</h3>
-                        <p class="text-sm lg:text-base text-gray-600">Sí, puedes hacer tu pedido a través de nuestro sitio web para delivery o recojo.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-lg lg:text-xl font-semibold brand-color mb-2">~ ¿Dónde están ubicados?</h3>
-                        <p class="text-sm lg:text-base text-gray-600">Encuéntranos en el corazón de la ciudad. Revisa el mapa en nuestra sección de contacto.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- CTA Banner Section -->
         <section class="bg-cover bg-center py-12" style="background-image: url('https://images.unsplash.com/photo-1568254183919-78a4f43a2877?q=80&w=1974&auto=format&fit=crop');" data-stellar-background-ratio="0.5">
             <div class="container mx-auto px-6 text-center">
@@ -520,84 +293,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js"></script>
 
     <!-- Custom JavaScript -->
-    <script>
-        $(window).on('load', function() {
-            // Preloader
-            $('#preloader').fadeOut('slow', function() {
-                $(this).remove();
-            });
-        });
-
-        $(document).ready(function(){
-            // Mobile Menu Toggle
-            $('#menu-button').on('click', function() {
-                $('#mobile-menu').toggleClass('hidden');
-            });
-
-            // Testimonial Slider
-            $('.testimonial-slider').slick({
-                dots: true,
-                arrows: false,
-                infinite: true,
-                speed: 500,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 4000,
-            });
-
-            // Stellar.js for Parallax (solo en escritorio)
-            if ($(window).width() > 768) {
-                $.stellar({
-                    horizontalScrolling: false,
-                    verticalOffset: 40
-                });
-            }
-
-            // --- Scrollspy & Smooth Scroll ---
-            function setActiveLink() {
-                var scrollDistance = $(window).scrollTop();
-                // Adjust for header height
-                var headerHeight = $('header').outerHeight() || 70;
-                // Add a small offset to trigger the active state earlier
-                var offset = 150;
-                $('.scroll-section').each(function(i) {
-                    if ($(this).position().top <= scrollDistance + headerHeight + offset) {
-                         // Clear all active classes
-                        $('.nav-link.page-scroll').removeClass('active');
-                        // Add active class to the current link. We find it by its href attribute
-                        $('.nav-link.page-scroll[href="#' + $(this).attr('id') + '"]').addClass('active');
-                    }
-                });
-                 // Special case for home
-                if (scrollDistance < $('#about').position().top - headerHeight - offset) {
-                    $('.nav-link.page-scroll').removeClass('active');
-                    $('.nav-link.page-scroll[href="#home"]').addClass('active');
-                }
-            }
-
-            // Set initial active link
-            setActiveLink();
-            // Update active link on scroll
-            $(window).on('scroll', setActiveLink);
-
-            // Smooth scrolling for page-scroll links
-            $('.page-scroll').on('click', function(event) {
-                if (this.hash !== "") {
-                    event.preventDefault();
-                    var hash = this.hash;
-                    var headerHeight = $('header').outerHeight() || 70;
-                    $('html, body').animate({
-                        scrollTop: $(hash).offset().top - headerHeight
-                    }, 800, 'easeInOutExpo');
-
-                    // Close mobile menu if open
-                    if (!$('#mobile-menu').hasClass('hidden')) {
-                        $('#mobile-menu').addClass('hidden');
-                    }
-                }
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
