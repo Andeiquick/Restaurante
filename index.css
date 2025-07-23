@@ -102,10 +102,10 @@ input[type="email"] {
  @media (max-width: 1023px) {
       #home {
         position: relative;
-        min-height: 100vh;
-        background-color: #fefefe;
-        background-position: right center;
+        min-height: 85vh;
+        background-image: url('https://get.pxhere.com/photo/dish-cuisine-food-meal-ingredient-breakfast-brunch-comfort-food-la-carte-food-plate-lunch-dishware-vegetarian-food-recipe-tableware-kids-meal-produce-spoon-garnish-bowl-Food-group-superfood-1614661.jpg');
         background-size: cover;
+        background-position: right center;
         display: flex;
         align-items: center;
         justify-content: flex-start;
