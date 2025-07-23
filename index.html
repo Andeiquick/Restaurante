@@ -132,24 +132,25 @@
 
         /* === NUEVOS ESTILOS PARA BANNER (MÓVIL Y ESCRITORIO) === */
         
-        /* Estilos para la imagen en Escritorio */
+        /* Estilos para la imagen en Escritorio (CORREGIDO) */
         @media (min-width: 1024px) {
             #home {
-                min-height: 90vh;
-                align-items: center;
+                height: 100vh;
+                align-items: stretch; /* Permite que los hijos ocupen toda la altura */
+            }
+            #home-text-content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: left;
             }
             #home-image-container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                height: 100%;
             }
             #home-image-container img {
                 width: 100%;
-                max-height: 70vh; /* Controla la altura máxima para que no sea muy grande */
-                object-fit: contain; /* Asegura que toda la imagen sea visible sin estirarse */
-            }
-             #home-text-content {
-                text-align: left;
+                height: 100%;
+                object-fit: cover; /* Cubre todo el espacio sin deformarse */
             }
         }
 
@@ -168,8 +169,7 @@
                 padding: 0 1.5rem; /* Padding para que la imagen no toque los bordes */
             }
             #home-image-container img {
-                width: 100%;
-                max-width: 400px; /* Tamaño mediano para la imagen */
+                width: 100%; /* La imagen ocupa todo el ancho del contenedor */
                 margin: 0 auto; /* Centrar la imagen */
             }
         }
@@ -226,7 +226,7 @@
     <section id="home" class="min-h-screen flex flex-col lg:flex-row justify-center bg-white">
         
         <!-- Text content -->
-        <div id="home-text-content" class="w-full lg:w-1/2 flex flex-col justify-center px-6 lg:py-0 lg:pl-12">
+        <div id="home-text-content" class="w-full lg:w-1/2 px-6 lg:py-0 lg:pl-12">
             <h1 class="text-[1.5rem] sm:text-[2.5rem] lg:text-[3rem] font-extrabold leading-tight">
                 comer bien es <br />invertir bien.
             </h1>
