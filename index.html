@@ -28,7 +28,7 @@
             color: #555;
         }
         /* Define la fuente para el encabezado, menú, textos pequeños y botones */
-        header, .btn, .small-text {
+        header, .btn, .small-text, .logo-text {
             font-family: 'Baloo 2', cursive;
         }
         /* Define la fuente y color para los títulos */
@@ -172,7 +172,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: rgba(0, 0, 0, 0.35); /* Sombra sutil */
+                background: rgba(0, 0, 0, 0.25); /* Sombra más sutil */
                 z-index: 2;
             }
 
@@ -218,9 +218,10 @@
     <!-- Header Section -->
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-lg md:text-2xl font-bold brand-color">
-                Foodera
-            </div>
+            <!-- Logo de texto rediseñado -->
+            <a href="#home" class="page-scroll text-2xl lg:text-3xl font-bold brand-color logo-text">
+              Foodera
+            </a>
             <div class="hidden lg:flex items-center space-x-6">
                 <a href="#home" class="nav-link page-scroll text-sm md:text-base">Inicio</a>
                 <a href="#about" class="nav-link page-scroll text-sm md:text-base">Sobre nosotros</a>
@@ -256,11 +257,11 @@
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex flex-col-reverse lg:flex-row items-center justify-between bg-white">
         
-        <!-- === NUEVO BANNER ANIMADO PARA MÓVIL === -->
+        <!-- === BANNER MÓVIL CON FONDOS BLANCOS === -->
         <div class="mobile-banner-slider lg:hidden">
-            <div class="mobile-banner-slide" style="background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
-            <div class="mobile-banner-slide" style="background-image: url('https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
-            <div class="mobile-banner-slide" style="background-image: url('https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
+            <div class="mobile-banner-slide" style="background-image: url('https://images.pexels.com/photos/1211887/pexels-photo-1211887.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
+            <div class="mobile-banner-slide" style="background-image: url('https://images.pexels.com/photos/1152237/pexels-photo-1152237.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
+            <div class="mobile-banner-slide" style="background-image: url('https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');"></div>
         </div>
 
         <!-- Text content (Ahora se superpone en móvil) -->
