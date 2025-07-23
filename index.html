@@ -132,7 +132,7 @@
 
         /* === NUEVOS ESTILOS PARA BANNER (MÓVIL Y ESCRITORIO) === */
         
-        /* Estilos para la imagen en Escritorio (CORREGIDO) */
+        /* Estilos para la imagen en Escritorio */
         @media (min-width: 1024px) {
             #home {
                 height: 100vh;
@@ -157,20 +157,54 @@
         /* Estilos para la imagen en Móvil */
         @media (max-width: 1023px) {
             #home {
-                padding: 4rem 0; /* Espacio vertical para la sección */
-                min-height: auto;
+                position: relative;
+                min-height: 85vh;
+                background-image: url('https://get.pxhere.com/photo/dish-cuisine-food-meal-ingredient-breakfast-brunch-comfort-food-la-carte-food-plate-lunch-dishware-vegetarian-food-recipe-tableware-kids-meal-produce-spoon-garnish-bowl-Food-group-superfood-1614661.jpg');
+                background-size: cover;
+                background-position: right center; /* Muestra el lado derecho de la imagen */
+                display: flex;
+                align-items: center;
+                justify-content: flex-start; /* Alinea el contenido a la izquierda */
             }
+
+            #home::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                /* Gradiente oscuro desde la izquierda para asegurar legibilidad del texto */
+                background: linear-gradient(to right, rgba(0,0,0,0.6) 20%, rgba(0,0,0,0.1) 80%);
+                z-index: 1;
+            }
+
             #home-text-content {
-                text-align: center;
-                padding: 0 1.5rem; /* Padding horizontal para el texto */
+                position: relative;
+                z-index: 2;
+                text-align: left;
+                padding: 0 1.5rem; /* Padding lateral para el texto */
+                width: 100%;
+                max-width: 500px; /* Limita el ancho del texto */
             }
+
+            /* Cambia el color del texto a blanco para que resalte */
+            #home-text-content h1,
+            #home-text-content p {
+                color: white;
+            }
+            
+            /* Añade sombra al texto para mayor legibilidad */
+            #home-text-content h1 {
+                text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+            }
+            #home-text-content p {
+                text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+            }
+
+            /* Ocultamos el contenedor de la imagen en móvil, ya que ahora es un fondo */
             #home-image-container {
-                margin-top: 2.5rem; /* Espacio entre el texto y la imagen */
-                padding: 0 1.5rem; /* Padding para que la imagen no toque los bordes */
-            }
-            #home-image-container img {
-                width: 100%; /* La imagen ocupa todo el ancho del contenedor */
-                margin: 0 auto; /* Centrar la imagen */
+                display: none;
             }
         }
 
