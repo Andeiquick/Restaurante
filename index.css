@@ -137,7 +137,7 @@ input[type="email"] {
     }
 }
 
-/* Estilos para móvil (hasta 1023px) - CORREGIDO */
+/* Estilos para móvil (hasta 1023px) */
 @media (max-width: 1023px) {
   #home {
     /* Forzamos la sección a ser una fila horizontal */
