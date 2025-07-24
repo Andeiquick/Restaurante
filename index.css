@@ -78,23 +78,32 @@ input[type="email"] {
 
 /* Estilos para la imagen en Escritorio */
 @media (min-width: 1024px) {
+    html, body {
+        height: 100%;
+    }
+
     #home {
         height: 100vh;
-        align-items: stretch; /* Permite que los hijos ocupen toda la altura */
+        display: flex;
+        align-items: stretch; /* Asegura que los hijos usen toda la altura */
     }
+
     #home-text-content {
         display: flex;
         flex-direction: column;
         justify-content: center;
         text-align: left;
     }
+
     #home-image-container {
         height: 100%;
+        display: flex;         /* Asegura que el img pueda estirarse */
     }
+
     #home-image-container img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Cubre todo el espacio sin deformarse */
+        object-fit: cover;     /* La imagen cubrirá toda el área sin deformarse */
     }
 }
 
