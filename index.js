@@ -1,17 +1,6 @@
-// Función para el preloader, se ejecuta cuando toda la página (imágenes incluidas) ha cargado
-$(window).on('load', function() {
-    // Oculta y elimina el preloader
-    $('#preloader').fadeOut('slow', function() {
-        $(this).remove();
-    });
-});
-
-// Se ejecuta una vez que el DOM está listo
 $(document).ready(function() {
-
-    // Inicialización del menú móvil
+    // Función para el menú móvil
     $('#menu-button').on('click', function() {
-        // Usamos slideToggle para una animación más suave que toggleClass
         $('#mobile-menu').slideToggle();
     });
 
@@ -35,62 +24,51 @@ $(document).ready(function() {
         });
     }
 
-    // --- CÓDIGO PARA LA ANIMACIÓN DE NÚMEROS ---
-
     // Función para animar el conteo de un número
     function animateValue(element, start, end, duration) {
         let startTimestamp = null;
         const step = (timestamp) => {
             if (!startTimestamp) startTimestamp = timestamp;
             const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            element.innerHTML = Math.floor(progress * (end - start) + start) + '+';
+            element.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString() + '+';
             if (progress < 1) {
                 window.requestAnimationFrame(step);
             } else {
-                // Asegurarse de que el número final sea exacto
-                element.innerHTML = end + '+';
+                element.innerHTML = end.toLocaleString() + '+';
             }
         };
         window.requestAnimationFrame(step);
     }
 
-    // --- CÓDIGO PARA EL BOTÓN DE VOLVER ARRIBA ---
+    // Lógica para el botón de volver arriba
     const scrollTopBtn = $('#scrollTopBtn');
-
-    // Lógica para el click del botón
     scrollTopBtn.on('click', function(e) {
         e.preventDefault();
         $('html, body').animate({ scrollTop: 0 }, 800, 'easeInOutExpo');
     });
 
-
-    // --- MANEJADOR DE EVENTOS DE SCROLL UNIFICADO ---
+    // Manejador de eventos de scroll unificado
     let animationHasRun = false;
-    
     $(window).on('scroll', function() {
-        // Mensaje de diagnóstico para verificar que el evento de scroll funciona
-        console.log('Scrolling...');
+        const scrollPos = $(this).scrollTop();
 
-        // Lógica para el botón de volver arriba
-        if ($(this).scrollTop() > 300) { // Muestra el botón después de 300px de scroll
+        // Muestra u oculta el botón de volver arriba
+        if (scrollPos > 300) {
             scrollTopBtn.css('opacity', '1').css('pointer-events', 'auto');
         } else {
             scrollTopBtn.css('opacity', '0').css('pointer-events', 'none');
         }
 
-        // Lógica para la animación de números (se ejecuta solo una vez)
+        // Inicia la animación de números cuando la sección es visible (solo una vez)
         if (!animationHasRun) {
-            var statsSection = $('#stats-section');
+            const statsSection = $('#stats-section');
             if (statsSection.length) {
-                var windowHeight = $(window).height();
-                var scrollTop = $(window).scrollTop();
-                var sectionTop = statsSection.offset().top;
-
-                if (sectionTop < (scrollTop + windowHeight - 100)) {
-                    console.log('¡Sección de estadísticas visible! Iniciando animación de números.');
+                const sectionTop = statsSection.offset().top;
+                const windowHeight = $(window).height();
+                if (sectionTop < (scrollPos + windowHeight - 100)) {
                     $('.stat-number').each(function() {
                         const element = this;
-                        const target = +$(element).attr('data-target');
+                        const target = +$(element).data('target');
                         animateValue(element, 0, target, 2000);
                     });
                     animationHasRun = true;
@@ -98,37 +76,32 @@ $(document).ready(function() {
             }
         }
         
-        // Lógica para el Scrollspy (actualizar enlace activo)
+        // Actualiza el enlace activo en el menú de navegación
         setActiveLink();
     });
 
-
-    // --- Scrollspy & Smooth Scroll ---
-    
-    // Función para actualizar el enlace activo en el menú
+    // Función para el Scrollspy (actualizar enlace activo)
     function setActiveLink() {
-        var scrollDistance = $(window).scrollTop();
-        var headerHeight = $('header').outerHeight() || 70;
-        var offset = 150; // Pequeño desfase para activar el enlace un poco antes
+        const scrollDistance = $(window).scrollTop();
+        const headerHeight = $('header').outerHeight() || 70;
+        const offset = headerHeight + 50;
+        let activeSectionId = "";
 
         $('.scroll-section').each(function() {
-            // Se añade una comprobación para asegurarse de que el elemento existe
-            if ($(this).length && $(this).position()) {
-                if ($(this).position().top <= scrollDistance + headerHeight + offset) {
-                    $('.nav-link.page-scroll').removeClass('active');
-                    $('.nav-link.page-scroll[href="#' + $(this).attr('id') + '"]').addClass('active');
-                }
+            if ($(this).offset().top <= scrollDistance + offset) {
+                activeSectionId = $(this).attr('id') || "";
             }
         });
+        
+        const activeLink = $('.nav-link.page-scroll[href="#' + activeSectionId + '"]');
 
-        // Caso especial para el enlace "Inicio"
-        if ($('#about').length && $('#about').position() && scrollDistance < $('#about').position().top - headerHeight - offset) {
+        if (!activeLink.hasClass('active')) {
             $('.nav-link.page-scroll').removeClass('active');
-            $('.nav-link.page-scroll[href="#home"]').addClass('active');
+            activeLink.addClass('active');
         }
     }
 
-    // Establecer el enlace activo al cargar la página
+    // Establece el enlace activo al cargar la página
     setActiveLink();
 
     // Smooth scroll para los enlaces con la clase .page-scroll
@@ -140,7 +113,7 @@ $(document).ready(function() {
 
             $('html, body').animate({
                 scrollTop: $(hash).offset().top - headerHeight
-            }, 800, 'easeInOutExpo'); // Se usa la librería jQuery Easing
+            }, 800, 'easeInOutExpo');
 
             // Cierra el menú móvil si está abierto después de hacer clic
             if ($('#mobile-menu').is(':visible')) {
@@ -148,5 +121,4 @@ $(document).ready(function() {
             }
         }
     });
-
 });
