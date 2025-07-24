@@ -29,9 +29,9 @@
     <header class="bg-white shadow-md sticky top-0 z-50">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Logo con imagen -->
-         <a href="#home" class="page-scroll">
-         <img src="logo.png" alt="Logo del sitio" class="h-16 w-auto">
-        </a>
+           <a href="#home" class="page-scroll">
+           <img src="logo.png" alt="Logo del sitio" class="h-16 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/200x64/f87171/ffffff?text=Logo';">
+         </a>
 
             
             <div class="hidden lg:flex items-center space-x-6">
@@ -67,10 +67,10 @@
     <main>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex flex-col lg:flex-row justify-center bg-white">
-        
-        <!-- Text content -->
-        <div id="home-text-content" class="w-full lg:w-1/2 px-6 lg:py-0 lg:pl-12">
+    <section id="home" class="min-h-screen flex flex-col lg:flex-row justify-center items-center bg-white">
+    
+        <!-- Contenedor del texto -->
+        <div id="home-text-content" class="w-full lg:w-1/2 px-6 lg:py-0 lg:pl-12 text-center lg:text-left">
             <h1 class="text-[1.5rem] sm:text-[2.5rem] lg:text-[3rem] font-extrabold leading-tight">
                 comer bien es <br />invertir bien.
             </h1>
@@ -79,21 +79,23 @@
                 Etiam et purus a odio finibus bibendum amet leo.
             </p>
 
-               <div class="mt-8 flex flex-col sm:flex-row gap-4">
-           <a href="https://maps.google.com/?q=restaurante" target="_blank" class="btn btn-primary flex items-center justify-center">
-           Ubicación
-          <i class="fa fa-map-marker ml-2"></i>
-          </a>
-      <a href="#" class="btn btn-secondary flex items-center justify-center">
-        Leer más
-        <i class="fa fa-arrow-right ml-2"></i>
-      </a>
-    </div>
+            <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <!-- BOTÓN DE UBICACIÓN: Cambia el enlace en el atributo href -->
+                <a href="https://maps.google.com/?q=Quevedo,Ecuador" target="_blank" class="btn btn-primary flex items-center justify-center">
+                    Ubicación
+                    <i class="fa fa-map-marker ml-2"></i>
+                </a>
+                <!-- BOTÓN DE LEER MÁS: Cambia el enlace '#' por la URL que desees -->
+                <a href="#" class="btn btn-secondary flex items-center justify-center">
+                    Leer más
+                    <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div> <!-- ETIQUETA DE CIERRE FALTANTE AÑADIDA AQUÍ -->
 
-
-        <!-- Image (Visible en móvil y escritorio con nuevos estilos) -->
-        <div id="home-image-container" class="w-full lg:w-1/2">
-            <img src="https://get.pxhere.com/photo/dish-cuisine-food-meal-ingredient-breakfast-brunch-comfort-food-la-carte-food-plate-lunch-dishware-vegetarian-food-recipe-tableware-kids-meal-produce-spoon-garnish-bowl-Food-group-superfood-1614661.jpg" alt="Plato de comida saludable con huevo y aguacate" />
+        <!-- Contenedor de la imagen -->
+        <div id="home-image-container" class="w-full lg:w-1/2 p-6">
+            <img src="https://get.pxhere.com/photo/dish-cuisine-food-meal-ingredient-breakfast-brunch-comfort-food-la-carte-food-plate-lunch-dishware-vegetarian-food-recipe-tableware-kids-meal-produce-spoon-garnish-bowl-Food-group-superfood-1614661.jpg" alt="Plato de comida saludable con huevo y aguacate" class="rounded-lg shadow-lg w-full h-auto object-cover" />
         </div>
     </section>
 
@@ -158,7 +160,7 @@
                     </button>
                 </div>
                 <div>  
-                    <img src="2.png" alt="Collage de diferentes platos de comida" class="w-full h-auto">
+                    <img src="2.png" alt="Collage de diferentes platos de comida" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f87171/ffffff?text=Imagen+de+Comida';">
                 </div>
             </div>
         </section>
