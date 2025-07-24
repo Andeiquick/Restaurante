@@ -35,7 +35,7 @@ $(document).ready(function() {
         });
     }
 
-    // --- CÓDIGO PARA LA ANIMACIÓN DE NÚMEROS (CORREGIDO CON DIAGNÓSTICO) ---
+    // --- CÓDIGO PARA LA ANIMACIÓN DE NÚMEROS ---
 
     // Función para animar el conteo de un número
     function animateValue(element, start, end, duration) {
@@ -54,41 +54,52 @@ $(document).ready(function() {
         window.requestAnimationFrame(step);
     }
 
-    // Variable para asegurar que la animación se ejecute solo una vez
+    // --- CÓDIGO PARA EL BOTÓN DE VOLVER ARRIBA ---
+    const scrollTopBtn = $('#scrollTopBtn');
+
+    // Lógica para el click del botón
+    scrollTopBtn.on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({ scrollTop: 0 }, 800, 'easeInOutExpo');
+    });
+
+
+    // --- MANEJADOR DE EVENTOS DE SCROLL UNIFICADO ---
     let animationHasRun = false;
     
-    // Se activa la animación al hacer scroll
     $(window).on('scroll', function() {
-        // Si la animación ya se ejecutó, no hacer nada más.
-        if (animationHasRun) return;
+        // Mensaje de diagnóstico para verificar que el evento de scroll funciona
+        console.log('Scrolling...');
 
-        var statsSection = $('#stats-section');
-        // Comprobar si la sección de estadísticas existe en la página
-        if (statsSection.length) {
-            var windowHeight = $(window).height();
-            var scrollTop = $(window).scrollTop();
-            var sectionTop = statsSection.offset().top;
-
-            // Si la parte superior de la sección de estadísticas entra en la vista del usuario
-            // Se le resta 100px para que la animación comience un poco antes de que la sección esté completamente visible
-            if (sectionTop < (scrollTop + windowHeight - 100)) {
-                
-                // Mensaje de diagnóstico en la consola del navegador
-                console.log('¡Sección de estadísticas visible! Iniciando animación de números.');
-
-                $('.stat-number').each(function() {
-                    const element = this;
-                    const target = +$(element).attr('data-target');
-                    // Iniciar la animación para cada número
-                    animateValue(element, 0, target, 2000); // Animar durante 2 segundos
-                });
-                // Marcar que la animación ya se ha ejecutado para no repetirla
-                animationHasRun = true;
-            }
+        // Lógica para el botón de volver arriba
+        if ($(this).scrollTop() > 300) { // Muestra el botón después de 300px de scroll
+            scrollTopBtn.css('opacity', '1').css('pointer-events', 'auto');
         } else {
-            // Mensaje de error si no se encuentra la sección
-            console.error('Error: No se pudo encontrar la sección con el ID #stats-section.');
+            scrollTopBtn.css('opacity', '0').css('pointer-events', 'none');
         }
+
+        // Lógica para la animación de números (se ejecuta solo una vez)
+        if (!animationHasRun) {
+            var statsSection = $('#stats-section');
+            if (statsSection.length) {
+                var windowHeight = $(window).height();
+                var scrollTop = $(window).scrollTop();
+                var sectionTop = statsSection.offset().top;
+
+                if (sectionTop < (scrollTop + windowHeight - 100)) {
+                    console.log('¡Sección de estadísticas visible! Iniciando animación de números.');
+                    $('.stat-number').each(function() {
+                        const element = this;
+                        const target = +$(element).attr('data-target');
+                        animateValue(element, 0, target, 2000);
+                    });
+                    animationHasRun = true;
+                }
+            }
+        }
+        
+        // Lógica para el Scrollspy (actualizar enlace activo)
+        setActiveLink();
     });
 
 
@@ -101,22 +112,24 @@ $(document).ready(function() {
         var offset = 150; // Pequeño desfase para activar el enlace un poco antes
 
         $('.scroll-section').each(function() {
-            if ($(this).position().top <= scrollDistance + headerHeight + offset) {
-                $('.nav-link.page-scroll').removeClass('active');
-                $('.nav-link.page-scroll[href="#' + $(this).attr('id') + '"]').addClass('active');
+            // Se añade una comprobación para asegurarse de que el elemento existe
+            if ($(this).length && $(this).position()) {
+                if ($(this).position().top <= scrollDistance + headerHeight + offset) {
+                    $('.nav-link.page-scroll').removeClass('active');
+                    $('.nav-link.page-scroll[href="#' + $(this).attr('id') + '"]').addClass('active');
+                }
             }
         });
 
         // Caso especial para el enlace "Inicio"
-        if (scrollDistance < $('#about').position().top - headerHeight - offset) {
+        if ($('#about').length && $('#about').position() && scrollDistance < $('#about').position().top - headerHeight - offset) {
             $('.nav-link.page-scroll').removeClass('active');
             $('.nav-link.page-scroll[href="#home"]').addClass('active');
         }
     }
 
-    // Establecer el enlace activo al cargar la página y al hacer scroll
+    // Establecer el enlace activo al cargar la página
     setActiveLink();
-    $(window).on('scroll', setActiveLink);
 
     // Smooth scroll para los enlaces con la clase .page-scroll
     $('.page-scroll').on('click', function(event) {
