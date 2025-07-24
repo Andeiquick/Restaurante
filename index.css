@@ -108,63 +108,67 @@ input[type="email"] {
 
 /* === ESTILOS RESPONSIVE PARA BANNER (MÓVIL Y ESCRITORIO) === */
 
- /* Estilos para la imagen en Escritorio */
-        @media (min-width: 1024px) {
-            #home {
-                height: 100vh;
-                display: flex;
-                align-items: stretch;
-                margin-top: -7rem;
-            }
-
-            #home-text-content {
-                flex: 1; /* Asegura que tome el espacio disponible */
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                text-align: left;
-                padding-top: 6rem;
-            }
-
-            #home-image-container {
-                flex: 1; /* Ocupa el otro 50% del espacio (lado derecho) */
-                height: 100%;
-                display: flex;
-            }
-
-            #home-image-container img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover; /* Asegura que cubra todo el espacio sin deformarse */
-                object-position: center; /* Centra la imagen para un mejor recorte */
-            }
-        }
-
-
-/* Estilos para móvil (hasta 1023px) */
-@media (max-width: 1023px) {
+/* Estilos para ESCRITORIO (desde 1024px) */
+@media (min-width: 1024px) {
     #home {
-       display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 85%;
-            padding: 1rem;
-            position: relative;   
-        
-        /* 1. Se establece la imagen de fondo */
-        background-image: url('https://get.pxhere.com/photo/dish-cuisine-food-meal-ingredient-breakfast-brunch-comfort-food-la-carte-food-plate-lunch-dishware-vegetarian-food-recipe-tableware-kids-meal-produce-spoon-garnish-bowl-Food-group-superfood-1614661.jpg');
-        background-size: cover; /* La imagen cubre todo el espacio */
-        background-position: left -100px top; /* Muestra el fondo imagen a la izquierda solo una parte */
+        height: 100vh;
+        display: flex;
+        align-items: stretch;
+        margin-top: -7rem;
 
+        /* ✅ Eliminar fondo de móvil */
+        background-image: none;
+        background-size: unset;
+        background-position: unset;
     }
 
-    
+    #home-text-content {
+        flex: 1; /* Toma la mitad izquierda */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        padding-top: 6rem;
+    }
+
+    #home-image-container {
+        flex: 1; /* Toma la mitad derecha */
+        height: 100vh;
+        display: flex;
+        overflow: hidden; /* Evita bordes blancos al redimensionar */
+    }
+
+    #home-image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Estira la imagen manteniendo proporción */
+        object-position: right top; /* ✅ Muestra parte inferior y derecha */
+    }
+}
+
+
+/* Estilos para MÓVIL (hasta 1023px) */
+@media (max-width: 1023px) {
+    #home {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 85%;
+        padding: 1rem;
+        position: relative;
+
+        /* ✅ Imagen como fondo en móvil */
+        background-image: url('https://get.pxhere.com/photo/dish-cuisine-food-meal-ingredient-breakfast-brunch-comfort-food-la-carte-food-plate-lunch-dishware-vegetarian-food-recipe-tableware-kids-meal-produce-spoon-garnish-bowl-Food-group-superfood-1614661.jpg');
+        background-size: cover;
+        background-position: left -100px top; /* Muestra solo una parte de la imagen */
+    }
+
     #home-text-content h1 {
         font-size: 2.5rem;
         line-height: 1.2;
         font-weight: 700;
     }
-    
+
     #home-text-content p {
         font-size: 1rem;
         line-height: 1.6;
@@ -172,9 +176,9 @@ input[type="email"] {
         color: #555;
         max-width: 100%;
     }
-    
+
     #home-image-container {
-        /* 4. El contenedor de la imagen original se oculta en móvil */
-        display: none;
+        display: none; /* Oculta la imagen <img> en móvil */
     }
 }
+
