@@ -126,22 +126,22 @@ input[type="email"] {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        height: 85vh;
+        height: 80vh; /* CAMBIO: Se redujo la altura para subir el contenido */
         padding: 1rem;
         position: relative;
         background-image: url('https://get.pxhere.com/photo/dish-cuisine-food-meal-ingredient-breakfast-brunch-comfort-food-la-carte-food-plate-lunch-dishware-vegetarian-food-recipe-tableware-kids-meal-produce-spoon-garnish-bowl-Food-group-superfood-1614661.jpg');
         background-size: cover;
-        background-position: left -100px top;
+        background-position: center;
     }
     
     #home-text-content h1 {
         font-size: 2.5rem;
         line-height: 1.2;
         font-weight: 700;
-        color: #1f2937; /* Texto del título negro */
+        color: #1f2937;
     }
     #home-text-content p {
-         color: #1f2937; /* Texto del párrafo negro */
+         color: #1f2937;
     }
     
     #home-image-container {
