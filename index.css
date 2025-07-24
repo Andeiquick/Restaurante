@@ -146,14 +146,11 @@ input[type="email"] {
 
 
 /* scroll lento de ubiacion */
-    html {
-      scroll-behavior: smooth;
-    }
-
-    section {
-      height: 100vh;
-      padding: 50px;
-    }
+    
+  a.btn.btn-primary {
+ {
+    scroll-behavior: smooth;
+}
 
 
 /* Estilos para el mapa de Google Maps */
