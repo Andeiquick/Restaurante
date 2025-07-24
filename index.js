@@ -35,7 +35,7 @@ $(document).ready(function() {
         });
     }
 
-    // --- CÓDIGO PARA LA ANIMACIÓN DE NÚMEROS ---
+    // --- CÓDIGO PARA LA ANIMACIÓN DE NÚMEROS (CORREGIDO CON DIAGNÓSTICO) ---
 
     // Función para animar el conteo de un número
     function animateValue(element, start, end, duration) {
@@ -54,33 +54,43 @@ $(document).ready(function() {
         window.requestAnimationFrame(step);
     }
 
-    // Usar Intersection Observer para detectar cuándo la sección de estadísticas es visible
-    const statsSection = document.getElementById('stats-section');
     // Variable para asegurar que la animación se ejecute solo una vez
-    let animationHasRun = false; 
+    let animationHasRun = false;
     
-    if (statsSection) {
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                // Si la sección es visible y la animación no se ha ejecutado
-                if (entry.isIntersecting && !animationHasRun) {
-                    const statNumbers = document.querySelectorAll('.stat-number');
-                    statNumbers.forEach(numberElement => {
-                        const target = +numberElement.getAttribute('data-target');
-                        // Iniciar la animación
-                        animateValue(numberElement, 0, target, 2000); // Animar durante 2 segundos
-                    });
-                    animationHasRun = true; // Marcar que la animación ya se ejecutó
-                    // Opcional: Dejar de observar después de la animación
-                    observer.unobserve(statsSection);
-                }
-            });
-        }, {
-            threshold: 0.5 // La animación se dispara cuando el 50% de la sección es visible
-        });
-        // Empezar a observar la sección
-        observer.observe(statsSection);
-    }
+    // Se activa la animación al hacer scroll
+    $(window).on('scroll', function() {
+        // Si la animación ya se ejecutó, no hacer nada más.
+        if (animationHasRun) return;
+
+        var statsSection = $('#stats-section');
+        // Comprobar si la sección de estadísticas existe en la página
+        if (statsSection.length) {
+            var windowHeight = $(window).height();
+            var scrollTop = $(window).scrollTop();
+            var sectionTop = statsSection.offset().top;
+
+            // Si la parte superior de la sección de estadísticas entra en la vista del usuario
+            // Se le resta 100px para que la animación comience un poco antes de que la sección esté completamente visible
+            if (sectionTop < (scrollTop + windowHeight - 100)) {
+                
+                // Mensaje de diagnóstico en la consola del navegador
+                console.log('¡Sección de estadísticas visible! Iniciando animación de números.');
+
+                $('.stat-number').each(function() {
+                    const element = this;
+                    const target = +$(element).attr('data-target');
+                    // Iniciar la animación para cada número
+                    animateValue(element, 0, target, 2000); // Animar durante 2 segundos
+                });
+                // Marcar que la animación ya se ha ejecutado para no repetirla
+                animationHasRun = true;
+            }
+        } else {
+            // Mensaje de error si no se encuentra la sección
+            console.error('Error: No se pudo encontrar la sección con el ID #stats-section.');
+        }
+    });
+
 
     // --- Scrollspy & Smooth Scroll ---
     
