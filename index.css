@@ -142,13 +142,18 @@ input[type="email"] {
     line-height: 1.6;
   }
 }
-/* scroll lento de ubiacion */
 
-<style>
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
+
+
+/* scroll lento de ubiacion */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    section {
+      height: 100vh;
+      padding: 50px;
+    }
 
 
 /* Estilos para el mapa de Google Maps */
