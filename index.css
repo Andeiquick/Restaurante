@@ -158,26 +158,6 @@ input[type="email"] {
 
     }
 
-    /* 2. Se añade una capa semitransparente para mejorar la legibilidad del texto */
-    #home::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(255, 255, 255, 0.1); /* Capa blanca muy sutil */
-        z-index: 1;
-    }
-
-    #home-text-content {
-        /* 3. Se asegura que el contenido esté por encima de la capa */
-        position: relative;
-        z-index: 2;
-        width: 100%;
-        text-align: left;
-        background: transparent;
-    }
     
     #home-text-content h1 {
         font-size: 2.5rem;
