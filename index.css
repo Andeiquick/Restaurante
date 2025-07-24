@@ -114,7 +114,7 @@ input[type="email"] {
         height: 100vh;
         display: flex;
         align-items: stretch; /* Asegura que los hijos usen toda la altura */
-        margin-top: -6rem;
+        margin-top: -7rem;
     }
 
     #home-text-content {
@@ -144,7 +144,7 @@ input[type="email"] {
             flex-direction: column;
             justify-content: center;
             height: 87%;
-            padding: 2rem;
+            padding: 1rem;
             position: relative;   
         
         /* 1. Se establece la imagen de fondo */
