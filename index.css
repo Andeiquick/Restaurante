@@ -113,11 +113,12 @@ input[type="email"] {
     #home {
         height: 100vh;
         display: flex;
-        align-items: stretch; /* Asegura que los hijos usen toda la altura */
+        align-items: stretch;
         margin-top: -7rem;
     }
 
     #home-text-content {
+        flex: 1; /* Asegura que tome el espacio disponible */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -126,6 +127,7 @@ input[type="email"] {
     }
 
     #home-image-container {
+        flex: 1; /* Ocupa el otro 50% del espacio (lado derecho) */
         height: 100%;
         display: flex;
     }
@@ -133,9 +135,11 @@ input[type="email"] {
     #home-image-container img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: cover; /* Asegura que cubra todo el espacio sin deformarse */
+        object-position: bottom right; /* ✅ Este valor hace que se vea más hacia abajo y derecha */
     }
 }
+
 
 /* Estilos para móvil (hasta 1023px) */
 @media (max-width: 1023px) {
