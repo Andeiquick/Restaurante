@@ -107,13 +107,12 @@ input[type="email"] {
 
 
 /* === ESTILOS RESPONSIVE PARA BANNER (MÓVIL Y ESCRITORIO) === */
-
-/* Estilos para la imagen en Escritorio */
 @media (min-width: 1024px) {
     #home {
         height: 100vh;
         display: flex;
         align-items: stretch; /* Asegura que los hijos usen toda la altura */
+        
         /* MODIFICACIÓN: Se añade un margen superior negativo para que la sección suba y ocupe el espacio del header.
            El valor de 6rem se calcula a partir de la altura del header: h-16 (4rem) + py-4 (2rem) = 6rem */
         margin-top: -6rem;
@@ -124,6 +123,7 @@ input[type="email"] {
         flex-direction: column;
         justify-content: center;
         text-align: left;
+
         /* MODIFICACIÓN: Se añade padding superior para compensar el margen negativo de #home y que el texto no quede detrás del header. */
         padding-top: 6rem;
     }
@@ -131,14 +131,23 @@ input[type="email"] {
     #home-image-container {
         height: 100%;
         display: flex;        /* Asegura que el img pueda estirarse */
+        position: relative;   /* Permite a la imagen usar position: absolute */
+        overflow: hidden;     /* Oculta desbordes si la imagen se sale */
     }
 
     #home-image-container img {
         width: 100%;
         height: 100%;
         object-fit: cover;      /* La imagen cubrirá toda el área sin deformarse */
+        display: block;         /* Evita espacios extra */
+        position: absolute;     /* Se estira a toda el área */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 }
+
 
 /* Estilos para móvil (hasta 1023px) */
 @media (max-width: 1023px) {
