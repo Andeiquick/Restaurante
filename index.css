@@ -131,7 +131,7 @@ input[type="email"] {
         position: relative;
         background-image: url('https://get.pxhere.com/photo/dish-cuisine-food-meal-ingredient-breakfast-brunch-comfort-food-la-carte-food-plate-lunch-dishware-vegetarian-food-recipe-tableware-kids-meal-produce-spoon-garnish-bowl-Food-group-superfood-1614661.jpg');
         background-size: cover;
-        background-position: center;
+        background-position: left -100px top;
     }
     
     #home-text-content h1 {
