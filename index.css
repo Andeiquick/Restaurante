@@ -110,14 +110,13 @@ input[type="email"] {
 
 /* Estilos para la imagen en Escritorio */
 @media (min-width: 1024px) {
-    html, body {
-        height: 100%;
-    }
-
     #home {
         height: 100vh;
         display: flex;
         align-items: stretch; /* Asegura que los hijos usen toda la altura */
+        /* MODIFICACIÓN: Se añade un margen superior negativo para que la sección suba y ocupe el espacio del header.
+           El valor de 6rem se calcula a partir de la altura del header: h-16 (4rem) + py-4 (2rem) = 6rem */
+        margin-top: -6rem;
     }
 
     #home-text-content {
@@ -125,6 +124,8 @@ input[type="email"] {
         flex-direction: column;
         justify-content: center;
         text-align: left;
+        /* MODIFICACIÓN: Se añade padding superior para compensar el margen negativo de #home y que el texto no quede detrás del header. */
+        padding-top: 6rem;
     }
 
     #home-image-container {
