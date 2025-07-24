@@ -142,10 +142,10 @@ input[type="email"] {
     #home {
        display: flex;
             flex-direction: column;
-            justify-content: flex-end;
+            justify-content: center;
             height: 80%;
             padding: 2rem;
-            position: relative;
+            position: relative;   
         
         /* 1. Se establece la imagen de fondo */
         background-image: url('https://get.pxhere.com/photo/dish-cuisine-food-meal-ingredient-breakfast-brunch-comfort-food-la-carte-food-plate-lunch-dishware-vegetarian-food-recipe-tableware-kids-meal-produce-spoon-garnish-bowl-Food-group-superfood-1614661.jpg');
