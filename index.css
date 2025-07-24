@@ -108,37 +108,37 @@ input[type="email"] {
 
 /* === ESTILOS RESPONSIVE PARA BANNER (MÓVIL Y ESCRITORIO) === */
 
-/* Estilos para la imagen en Escritorio */
-@media (min-width: 1024px) {
-    #home {
-        height: 100vh;
-        display: flex;
-        align-items: stretch;
-        margin-top: -7rem;
-    }
+ /* Estilos para la imagen en Escritorio */
+        @media (min-width: 1024px) {
+            #home {
+                height: 100vh;
+                display: flex;
+                align-items: stretch;
+                margin-top: -7rem;
+            }
 
-    #home-text-content {
-        flex: 1; /* Asegura que tome el espacio disponible */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: left;
-        padding-top: 6rem;
-    }
+            #home-text-content {
+                flex: 1; /* Asegura que tome el espacio disponible */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: left;
+                padding-top: 6rem;
+            }
 
-    #home-image-container {
-        flex: 1; /* Ocupa el otro 50% del espacio (lado derecho) */
-        height: 100%;
-        display: flex;
-    }
+            #home-image-container {
+                flex: 1; /* Ocupa el otro 50% del espacio (lado derecho) */
+                height: 100%;
+                display: flex;
+            }
 
-    #home-image-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Asegura que cubra todo el espacio sin deformarse */
-        object-position: bottom right; /* ✅ Este valor hace que se vea más hacia abajo y derecha */
-    }
-}
+            #home-image-container img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Asegura que cubra todo el espacio sin deformarse */
+                object-position: center; /* Centra la imagen para un mejor recorte */
+            }
+        }
 
 
 /* Estilos para móvil (hasta 1023px) */
