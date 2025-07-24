@@ -111,14 +111,14 @@ input[type="email"] {
 /* Estilos para la imagen en Escritorio */
 @media (min-width: 1024px) {
     #home {
-        height: 100vh;
+        height: 100vh;           /* Altura total de la ventana */
         display: flex;
-        align-items: stretch;
+        align-items: stretch;    /* Estira los hijos verticalmente */
         margin-top: -7rem;
     }
 
     #home-text-content {
-        flex: 1; /* Asegura que tome el espacio disponible */
+        flex: 1;                 /* Ocupa parte izquierda */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -127,16 +127,16 @@ input[type="email"] {
     }
 
     #home-image-container {
-        flex: 1; /* Ocupa el otro 50% del espacio (lado derecho) */
-        height: 100%;
+        flex: 1;                 /* Ocupa lado derecho */
+        height: 100vh;           /* Altura total para estirar arriba y abajo */
         display: flex;
     }
 
     #home-image-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Asegura que cubra todo el espacio sin deformarse */
-        object-position: bottom right; /* ✅ Este valor hace que se vea más hacia abajo y derecha */
+        width: auto;             /* Ancho automático para mantener proporción */
+        height: 100%;            /* Altura total del contenedor */
+        object-fit: cover;       /* Cubre sin deformar */
+        object-position: right top; /* Imagen pegada arriba a la derecha */
     }
 }
 
