@@ -153,8 +153,8 @@ input[type="email"] {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        height: 80%;
-        padding: 2rem;
+        height: 90%;
+        padding: 1rem;
         position: relative;
 
         /* ✅ Imagen como fondo en móvil */
