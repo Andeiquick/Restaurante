@@ -1,3 +1,10 @@
+/* Estilo para habilitar el scroll suave en toda la página */
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- ESTILOS GENERALES Y FUENTES --- */
+
 /* Define la fuente principal para párrafos y texto general */
 body {
     font-family: sans-serif;
@@ -12,6 +19,9 @@ h1, h2, h3 {
     font-family: 'Quicksand', sans-serif;
     color: #43121d;
 }
+
+/* --- COLORES DE MARCA --- */
+
 /* Define un color personalizado basado en el diseño */
 .brand-color {
     color: #a83d51;
@@ -22,17 +32,21 @@ h1, h2, h3 {
 .border-brand-color {
     border-color: #a83d51;
 }
+
+/* --- ESTILOS PARA BOTONES --- */
+
 /* Estilos para botones para que coincidan con la imagen */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
-    padding: 0.625rem 1.5rem; /* Padding aumentado en 2px */
+    padding: 0.625rem 1.5rem;
     transition: all 0.3s ease;
     font-size: 1rem;
     border: none;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15); /* Sombra añadida */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    border-radius: 0.5rem; /* Mantenemos el borde redondeado */
 }
 .btn:hover {
     transform: translateY(-2px); /* Efecto de levantamiento */
@@ -48,6 +62,8 @@ h1, h2, h3 {
     background-color: white;
     color: #43121d;
 }
+
+/* --- OTROS COMPONENTES --- */
 
 /* Estilo para el campo de email para que coincida con los botones */
 input[type="email"] {
@@ -74,7 +90,23 @@ input[type="email"] {
     color: #a83d51; /* brand-color */
 }
 
-/* === NUEVOS ESTILOS PARA BANNER (MÓVIL Y ESCRITORIO) === */
+/* Estilos para el mapa de Google Maps */
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Altura fija para el mapa */
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+/* === ESTILOS RESPONSIVE PARA BANNER (MÓVIL Y ESCRITORIO) === */
 
 /* Estilos para la imagen en Escritorio */
 @media (min-width: 1024px) {
@@ -97,13 +129,13 @@ input[type="email"] {
 
     #home-image-container {
         height: 100%;
-        display: flex;         /* Asegura que el img pueda estirarse */
+        display: flex;        /* Asegura que el img pueda estirarse */
     }
 
     #home-image-container img {
         width: 100%;
         height: 100%;
-        object-fit: cover;     /* La imagen cubrirá toda el área sin deformarse */
+        object-fit: cover;      /* La imagen cubrirá toda el área sin deformarse */
     }
 }
 
@@ -150,29 +182,4 @@ input[type="email"] {
     font-size: 1.125rem;
     line-height: 1.6;
   }
-}
-
-
-
-/* scroll lento de ubiacion */
-    
-  a.btn.btn-primary {
- {
-    scroll-behavior: smooth;
-}
-
-
-/* Estilos para el mapa de Google Maps */
-.map-container {
-    position: relative;
-    width: 100%;
-    height: 400px; /* Altura fija para el mapa */
-    border-radius: 0.75rem;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-.map-container iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
 }
