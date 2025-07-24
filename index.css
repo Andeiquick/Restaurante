@@ -140,17 +140,18 @@ input[type="email"] {
 /* Estilos para móvil (hasta 1023px) */
 @media (max-width: 1023px) {
     #home {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100vh; /* Ocupa toda la altura de la pantalla */
-        padding: 2rem;
-        position: relative; /* Necesario para la capa de superposición */
+       display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 80%;
+            padding: 2rem;
+            position: relative;
         
         /* 1. Se establece la imagen de fondo */
         background-image: url('https://get.pxhere.com/photo/dish-cuisine-food-meal-ingredient-breakfast-brunch-comfort-food-la-carte-food-plate-lunch-dishware-vegetarian-food-recipe-tableware-kids-meal-produce-spoon-garnish-bowl-Food-group-superfood-1614661.jpg');
         background-size: cover; /* La imagen cubre todo el espacio */
-        background-position: center center; /* La imagen se centra */
+        background-position: left -100px top; /* Muestra el fondo imagen a la izquierda solo una parte */
+
     }
 
     /* 2. Se añade una capa semitransparente para mejorar la legibilidad del texto */
